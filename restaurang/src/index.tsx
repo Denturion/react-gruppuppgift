@@ -8,11 +8,6 @@ import { Contact } from "./components/contact/contact";
 import App from "./App";
 import { NotFound } from "./components/notfound/notfound";
 import { Layout } from "./components/layout/layout";
-<<<<<<< HEAD
-=======
-import { BookingCalendar } from "./components/booking/bookingcalendar";
->>>>>>> bf0d51a91cb13da7797f5c56cc51207e96828278
-import { Booking } from "./components/booking/booking";
 
 
 const container = document.getElementById("root");
@@ -24,12 +19,7 @@ root.render(
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<App />} />
-<<<<<<< HEAD
-          <Route path="/main" element={<Main />} />
-          <Route path="/booking" element={<Booking />} />
-=======
-          <Route path="/test" element={<BookingCalendar />} />
->>>>>>> bf0d51a91cb13da7797f5c56cc51207e96828278
+          <Route path="/animals" element={<Main />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Route>
