@@ -18,6 +18,8 @@ export function BookingCalendar (){
     console.log(date)
   };
 
+  return(
+
   <CalendarContainer>
       <Calendar onClickDay={setDate} onChange={resetShow} value={date}
         maxDate={new Date(2023, 1, 1)} // Sätter sista datum för bokning
@@ -47,4 +49,5 @@ export function BookingCalendar (){
         )}
       </div>
     </CalendarContainer>
+    )
 }
