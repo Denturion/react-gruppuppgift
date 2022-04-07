@@ -1,6 +1,7 @@
 export function Booking () {
-    return 
-    (<>
+    return (
+    <>
+    hej
         </>)
     
 

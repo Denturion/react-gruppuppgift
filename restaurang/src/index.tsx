@@ -8,6 +8,8 @@ import { Contact } from "./components/contact/contact";
 import App from "./App";
 import { NotFound } from "./components/notfound/notfound";
 import { Layout } from "./components/layout/layout";
+import { BookingCalendar } from "./components/booking/bookingcalendar";
+import { Booking } from "./components/booking/booking";
 
 
 const container = document.getElementById("root");
@@ -19,7 +21,7 @@ root.render(
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<App />} />
-          <Route path="/animals" element={<Main />} />
+          <Route path="/test" element={<BookingCalendar />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Route>
