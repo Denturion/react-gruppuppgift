@@ -21,7 +21,7 @@ root.render(
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<App />} />
-          <Route path="/test" element={<BookingCalendar />} />
+          <Route path="/test" element={<Main />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="*" element={<NotFound />} />
         </Route>
