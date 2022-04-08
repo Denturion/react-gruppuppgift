@@ -1,53 +1,68 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Calendar from 'react-calendar';
+import { BookingForm } from "./bookingform";
 import { CalendarContainer } from "./calendarstyles";
 
-export function BookingCalendar (){
-    const [date, setDate] = useState(new Date());
-  const [show, setShow] = useState(false);
+export function BookingCalendar() {
+  const [date, setDate] = useState(new Date());
+  const [showTimes, setShowTimes] = useState(false);
+  const [showBooking, setShowBooking] = useState(false);
+  const [bookingTime, setbookingTime] = useState("");
+
+  // const [submitComplete, setSubmitComplete] = useState(false);
   
+  // const updateSumbit = (submit: false): void => {
+  //   setSubmitComplete(submit)
+  // }
+
+
   function callAPI() {
-    setShow(!show);
+    setShowTimes(!showTimes);
+    setShowBooking(false);
   };
   function resetShow() {
-    setShow(false);
+    setShowTimes(false);
+    setShowBooking(false);
   };
 
-  function timeBooking(time:number) {
-    console.log(time);
-    console.log(date)
+  function timeBooking(time: string) {
+    setbookingTime(time);
+    setShowBooking(true);
   };
 
-  return(
+  return (
+    <>
+      <CalendarContainer>
+        <Calendar onClickDay={setDate} onChange={resetShow} value={date}
+          maxDate={new Date(2023, 1, 1)} // Sätter sista datum för bokning
+          minDate={new Date()} //Gör så att allt innan dagens datum är disabled
+          nextLabel='>>'
+          nextAriaLabel='Go to next month'
+          prevLabel='<<'
+          prevAriaLabel='Go to prev month' />
 
-  <CalendarContainer>
-      <Calendar onClickDay={setDate} onChange={resetShow} value={date}
-        maxDate={new Date(2023, 1, 1)} // Sätter sista datum för bokning
-        minDate={new Date()} //Gör så att allt innan dagens datum är disabled
-        nextLabel='>>'
-        nextAriaLabel='Go to next month'
-        prevLabel='<<'
-        prevAriaLabel='Go to prev month' />
+        <div className='info'>
 
-      <div className='info'>
-
-        <div>
-          <p className='text-center'>
-            <span className='bold'>Valt datum:</span>{' '}
-            {date.toLocaleDateString()}
-          </p>
-          <button className='freeTables' onClick={callAPI}>Se lediga bord</button>
-        </div>
-        {show && (
-          <div className='freeTime'>
-            <p>Tryck på tiden för att komma vidare till bokning</p>
-            <div className='times'>
-              <button className='freeTables' onClick={()=>{timeBooking(6)}}>18.00</button>
-              <button className='freeTables' onClick={()=>{timeBooking(9)}}>21.00</button>
-            </div>
+          <div>
+            <p className='text-center'>
+              <span className='bold'>Valt datum:</span>{' '}
+              {date.toLocaleDateString()}
+            </p>
+            <button className='freeTables' onClick={callAPI}>Se lediga bord</button>
           </div>
-        )}
-      </div>
-    </CalendarContainer>
-    )
+          {showTimes && (
+            <div className='freeTime'>
+              <p>Tryck på tiden för att komma vidare till bokning</p>
+              <div className='times'>
+                <button className='freeTables' onClick={() => { timeBooking("18.00") }}>18.00</button>
+                <button className='freeTables' onClick={() => { timeBooking("21.00") }}>21.00</button>
+              </div>
+            </div>
+          )}
+        </div>
+      </CalendarContainer>
+
+      {showBooking && (<BookingForm time={bookingTime} myDate={date.toLocaleString()}></BookingForm>)}
+    </>
+  )
 }
