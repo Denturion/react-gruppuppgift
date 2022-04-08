@@ -17,6 +17,7 @@ interface IBooking {
 interface IBookingFormProps{
     time:string,
     myDate:string
+    //submitComplete: (arg: boolean) => null
 }
 export function BookingForm(props: IBookingFormProps) {
 
@@ -47,6 +48,7 @@ export function BookingForm(props: IBookingFormProps) {
 
     function hejhopp() {
         console.log(newUser);
+        //props.submitComplete(true);
     }
 
     return (

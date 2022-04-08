@@ -9,6 +9,12 @@ export function BookingCalendar() {
   const [showBooking, setShowBooking] = useState(false);
   const [bookingTime, setbookingTime] = useState("");
 
+  // const [submitComplete, setSubmitComplete] = useState(false);
+  
+  // const updateSumbit = (submit: false): void => {
+  //   setSubmitComplete(submit)
+  // }
+
 
   function callAPI() {
     setShowTimes(!showTimes);
@@ -55,7 +61,8 @@ export function BookingCalendar() {
           )}
         </div>
       </CalendarContainer>
-      {showBooking && (<BookingForm time={bookingTime} myDate={date.toString()}></BookingForm>)}
+
+      {showBooking && (<BookingForm time={bookingTime} myDate={date.toLocaleString()}></BookingForm>)}
     </>
   )
 }
