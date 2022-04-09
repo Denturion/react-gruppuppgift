@@ -1,7 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react";
 
-interface IRestaurant {
+export interface IRestaurant {
     _id: string,
     name: string,
     address: string,
@@ -11,13 +11,13 @@ interface IRestaurant {
 
 export function Contact () {
 
-const [restaurantInfo, setRestaurantinfo] = useState();
+const [restaurantInfo, setRestaurantinfo] = useState<IRestaurant[]>([]);
 
 const getRestaurant = () => {
-    axios.get("https://school-restaurant-api.azurewebsites.net/restaurant/624ff35c138a40561e115f1e")
+    axios.get<IRestaurant[]>("https://school-restaurant-api.azurewebsites.net/restaurant/624ff35c138a40561e115f1e")
     .then((response) => {
         const apiRestaurant = response.data;
-        setRestaurantinfo(apiRestaurant[0]);
+        setRestaurantinfo(apiRestaurant);
     });
 };
 
@@ -25,9 +25,12 @@ const getRestaurant = () => {
 
     console.log(restaurantInfo);
 
+    //let restaurantName : string = restaurantInfo[0].name
+
     return (
         <div>
             <p>Contacts works</p>
+            {}
             </div>
    )
 }
