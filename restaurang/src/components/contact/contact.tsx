@@ -41,11 +41,15 @@ const getRestaurant = () => {
 
     return (
         <div>
-            <p>Contacts works</p>
-            { restaurantName }
-            { restaurantAdress }
-            { restaurantZip }
-            { restaurantCity }
-            </div>
+            <p>+4611-496 11 87</p>
+            <p>{ restaurantName }</p>
+            <p>{ restaurantAdress }</p>
+            <p>{ restaurantZip } { restaurantCity }</p>
+            
+            <p>ÖPPETTIDER</p>
+            <p>Sön-Tors 11-21</p>
+            <p>Fre-lörd 11-22</p>
+            <p>britney@burgers.se</p>
+        </div>
    )
 }
