@@ -23,28 +23,12 @@ const getRestaurant = () => {
 
     useEffect(() => getRestaurant(), []);
 
-    //console.log(restaurantInfo);
-
-    let restaurantName : string = "";
-    let restaurantAdress : string = "";
-    let restaurantZip : string = "";
-    let restaurantCity : string = "";
-
-    if (restaurantInfo[0].name !== undefined) {
-
-    restaurantName = restaurantInfo[0].name;
-    restaurantAdress = restaurantInfo[0].address;
-    restaurantZip = restaurantInfo[0].zip;
-    restaurantCity = restaurantInfo[0].city;
-
-    }
-
     return (
         <div>
             <p>+4611-496 11 87</p>
-            <p>{ restaurantName }</p>
-            <p>{ restaurantAdress }</p>
-            <p>{ restaurantZip } { restaurantCity }</p>
+            <p>{ restaurantInfo[0].name }</p>
+            <p>{ restaurantInfo[0].address }</p>
+            <p>{ restaurantInfo[0].zip } { restaurantInfo[0].city }</p>
             
             <p>ÖPPETTIDER</p>
             <p>Sön-Tors 11-21</p>
