@@ -11,7 +11,7 @@ export interface IRestaurant {
 
 export function Contact () {
 
-const [restaurantInfo, setRestaurantinfo] = useState<IRestaurant[]>([]);
+const [restaurantInfo, setRestaurantinfo] = useState<IRestaurant[]>([{_id: "", name: "", address: "", zip: "", city: ""}]);
 
 const getRestaurant = () => {
     axios.get<IRestaurant[]>("https://school-restaurant-api.azurewebsites.net/restaurant/624ff35c138a40561e115f1e")
@@ -23,12 +23,21 @@ const getRestaurant = () => {
 
     useEffect(() => getRestaurant(), []);
 
-    console.log(restaurantInfo);
+    //console.log(restaurantInfo);
 
-    let restaurantName : string = restaurantInfo[0].name;
-    let restaurantAdress : string = restaurantInfo[0].address;
-    let restaurantZip : string = restaurantInfo[0].zip;
-    let restaurantCity : string = restaurantInfo[0].city;
+    let restaurantName : string = "";
+    let restaurantAdress : string = "";
+    let restaurantZip : string = "";
+    let restaurantCity : string = "";
+
+    if (restaurantInfo[0].name !== undefined) {
+
+    restaurantName = restaurantInfo[0].name;
+    restaurantAdress = restaurantInfo[0].address;
+    restaurantZip = restaurantInfo[0].zip;
+    restaurantCity = restaurantInfo[0].city;
+
+    }
 
     return (
         <div>
