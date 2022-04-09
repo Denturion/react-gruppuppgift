@@ -25,12 +25,18 @@ const getRestaurant = () => {
 
     console.log(restaurantInfo);
 
-    //let restaurantName : string = restaurantInfo[0].name
+    let restaurantName : string = restaurantInfo[0].name;
+    let restaurantAdress : string = restaurantInfo[0].address;
+    let restaurantZip : string = restaurantInfo[0].zip;
+    let restaurantCity : string = restaurantInfo[0].city;
 
     return (
         <div>
             <p>Contacts works</p>
-            {}
+            { restaurantName }
+            { restaurantAdress }
+            { restaurantZip }
+            { restaurantCity }
             </div>
    )
 }
