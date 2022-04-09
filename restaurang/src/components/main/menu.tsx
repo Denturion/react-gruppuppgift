@@ -8,7 +8,7 @@ export function Menu () {
     return (
     <>
         <div className="burgerMenuDiv">
-            <h4>Opps i did it again</h4>
+            <h4>Oops I did it again</h4>
             <h5>135kr</h5>
             <p>Bröd, kött, ost, avokadoröra, rökig majo, tomat, gurka, krispsallad och lök</p>
             <img className="mainPageHamburger" src={opsBurger}/>
@@ -22,7 +22,7 @@ export function Menu () {
         <div className="burgerMenuDiv">
             <h4>Toxic</h4>
             <h5>135kr</h5>
-            <p>Bröd, kött, ost, pepperjackost, BBW sås, chillimajo, chilicheese, tomat, krispsallad och Britneys rostade lök</p>
+            <p>Bröd, kött, ost, pepperjackost, BBQ sås, chillimajo, chilicheese, tomat, krispsallad och Britneys rostade lök</p>
             <img className="mainPageHamburger" src={toxicBurger}/>
         </div>
         <div className="burgerMenuDiv">
