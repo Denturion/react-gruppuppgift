@@ -1,4 +1,4 @@
-import { ChangeEvent, useState } from "react"
+import { ChangeEvent, FormEvent, FormEventHandler, useState } from "react"
 
 interface ICustomer {
     name: string,
@@ -17,7 +17,7 @@ interface IBooking {
 interface IBookingFormProps{
     time:string,
     myDate:string
-    //submitComplete: (arg: boolean) => null
+    submitComplete(arg: boolean): void
 }
 export function BookingForm(props: IBookingFormProps) {
 
@@ -42,14 +42,12 @@ export function BookingForm(props: IBookingFormProps) {
         console.log(newUser);
     };
 
-    function handleSubmit() {
-        hejhopp();
+    function handleSubmit(e: FormEvent<HTMLFormElement>) {
+        e.preventDefault();
+        console.log(newUser);
+
     }
 
-    function hejhopp() {
-        console.log(newUser);
-        //props.submitComplete(true);
-    }
 
     return (
         <>
