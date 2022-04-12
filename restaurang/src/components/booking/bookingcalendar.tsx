@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Calendar from 'react-calendar';
 import { BookingForm } from "./bookingform";
 import { CalendarContainer } from "./calendarstyles";
@@ -6,31 +6,27 @@ import { CalendarContainer } from "./calendarstyles";
 export function BookingCalendar() {
   const [date, setDate] = useState(new Date());
   const [showTimes, setShowTimes] = useState(false);
-  const [showBooking, setShowBooking] = useState(false);
+  const [showForm, setShowForm] = useState(false);
   const [bookingTime, setbookingTime] = useState("");
-
-   const [submitCompleted, setSubmitCompleted] = useState(false);
+  const [submitCompleted, setSubmitCompleted] = useState(false);
   
-  // const updateSumbit = (submit: false): void => {
-  //   setSubmitComplete(submit)
-  // }
 
 
   function callAPI() {
-    setShowTimes(!showTimes);
-    setShowBooking(false);
+    setShowTimes(true);
+    setShowForm(false);
   };
   function resetShow() {
     setShowTimes(false);
-    setShowBooking(false);
+    setShowForm(false);
   };
 
   function timeBooking(time: string) {
     setbookingTime(time);
-    setShowBooking(true);
+    setShowForm(true);
   };
   function submitComplete(){
-
+    setSubmitCompleted(true);
   }
 
   return (
@@ -65,9 +61,11 @@ export function BookingCalendar() {
         </div>
       </CalendarContainer>
 
-      {(showBooking && !submitCompleted) && (<BookingForm time={bookingTime} myDate={date.toLocaleString()} submitComplete={submitComplete}></BookingForm>)}
+      {(showForm && !submitCompleted) && (<BookingForm time={bookingTime} myDate={date.toLocaleString()} submitComplete={submitComplete}></BookingForm>)}
       {submitCompleted &&(
-        <div></div>
+        <div>
+          KLAAAR
+        </div>
       )}
     </>
   )
