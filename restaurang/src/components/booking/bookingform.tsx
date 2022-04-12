@@ -1,31 +1,15 @@
-import { ChangeEvent, useState } from "react"
+import { ChangeEvent, FormEvent, FormEventHandler, useState } from "react"
+import { ICustomer } from "../interfaces/ICustomer";
+import { pushBooking } from "./pushbooking"
 
-interface ICustomer {
-    name: string,
-    lastname: string,
-    email: string,
-    phone: string
-}
-interface IBooking {
-    restautantID: string,
-    date: string,
-    time: string,
-    numberOfGuests: number,
-    customer: ICustomer
-}
+
 
 interface IBookingFormProps{
     time:string,
     myDate:string
-    //submitComplete: (arg: boolean) => null
+    submitComplete(arg: boolean): void
 }
 export function BookingForm(props: IBookingFormProps) {
-
-    //Props innehåller tiden och datumet som personen tryckt på vi behöver lägga till antalet personer också
-
-    let restaurantID = "624ff35c138a40561e115f1e";
-    let date = props.myDate;
-    let time = props.time;
 
     const [newUser, setNewUser] = useState<ICustomer>({
         name: "",
@@ -39,17 +23,18 @@ export function BookingForm(props: IBookingFormProps) {
 
         setNewUser({ ...newUser, [name]: e.target.value });
 
-        console.log(newUser);
     };
 
-    function handleSubmit() {
-        hejhopp();
+    function handleSubmit(e: FormEvent<HTMLFormElement>) {
+        e.preventDefault();
+
+        //PUSH BOOKING TO API
+        pushBooking(props.myDate, props.time, newUser);
+
+        //Submit Complete, show message in Parent
+        props.submitComplete(true);
     }
 
-    function hejhopp() {
-        console.log(newUser);
-        //props.submitComplete(true);
-    }
 
     return (
         <>

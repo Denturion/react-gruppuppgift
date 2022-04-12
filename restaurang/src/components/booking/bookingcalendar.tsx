@@ -1,34 +1,47 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Calendar from 'react-calendar';
 import { BookingForm } from "./bookingform";
-import { CalendarContainer } from "./calendarstyles";
+
+import { FindFreeTables } from "./findfreetables";
+import { CalendarContainer } from "./mockups/stylecomponens/calendarstyles";
+import { NumberOfGuests } from "./numberOfGuests";
+
 
 export function BookingCalendar() {
   const [date, setDate] = useState(new Date());
   const [showTimes, setShowTimes] = useState(false);
-  const [showBooking, setShowBooking] = useState(false);
+  const [showForm, setShowForm] = useState(false);
   const [bookingTime, setbookingTime] = useState("");
-
-  // const [submitComplete, setSubmitComplete] = useState(false);
-  
-  // const updateSumbit = (submit: false): void => {
-  //   setSubmitComplete(submit)
-  // }
+  const [submitCompleted, setSubmitCompleted] = useState(false);
+  const [numberOfGuests, setNumberOfGuests] = useState(1);
 
 
-  function callAPI() {
-    setShowTimes(!showTimes);
-    setShowBooking(false);
+
+  function findTable() {
+    setShowTimes(true);
+    setShowForm(false);
+
+    //Kalla på API för att hitta om det finns lediga bord
+    //Skicka med datum
+    FindFreeTables(date.toLocaleString())
   };
   function resetShow() {
     setShowTimes(false);
-    setShowBooking(false);
+    setShowForm(false);
   };
 
   function timeBooking(time: string) {
     setbookingTime(time);
-    setShowBooking(true);
+    setShowForm(true);
   };
+  function submitComplete() {
+    setSubmitCompleted(true);
+  }
+
+  function guests(number:number) {
+    setNumberOfGuests(number);
+    console.log(numberOfGuests)
+  }
 
   return (
     <>
@@ -42,13 +55,13 @@ export function BookingCalendar() {
           prevAriaLabel='Go to prev month' />
 
         <div className='info'>
-
           <div>
             <p className='text-center'>
               <span className='bold'>Valt datum:</span>{' '}
               {date.toLocaleDateString()}
             </p>
-            <button className='freeTables' onClick={callAPI}>Se lediga bord</button>
+            <NumberOfGuests guests={guests}></NumberOfGuests>
+            <button className='freeTables' onClick={findTable}>Se lediga bord</button>
           </div>
           {showTimes && (
             <div className='freeTime'>
@@ -62,7 +75,12 @@ export function BookingCalendar() {
         </div>
       </CalendarContainer>
 
-      {showBooking && (<BookingForm time={bookingTime} myDate={date.toLocaleString()}></BookingForm>)}
+      {(showForm && !submitCompleted) && (<BookingForm time={bookingTime} myDate={date.toLocaleString()} submitComplete={submitComplete}></BookingForm>)}
+      {submitCompleted && (
+        <div>
+          KLAAAR
+        </div>
+      )}
     </>
   )
 }
