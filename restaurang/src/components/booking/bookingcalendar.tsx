@@ -4,7 +4,8 @@ import { BookingForm } from "./bookingform";
 
 import { FindFreeTables } from "./findfreetables";
 import { CalendarContainer } from "./mockups/stylecomponens/calendarstyles";
-import { TestComponent } from "./test";
+import { NumberOfGuests } from "./numberOfGuests";
+
 
 export function BookingCalendar() {
   const [date, setDate] = useState(new Date());
@@ -12,6 +13,7 @@ export function BookingCalendar() {
   const [showForm, setShowForm] = useState(false);
   const [bookingTime, setbookingTime] = useState("");
   const [submitCompleted, setSubmitCompleted] = useState(false);
+  const [numberOfGuests, setNumberOfGuests] = useState(1);
 
 
 
@@ -36,6 +38,11 @@ export function BookingCalendar() {
     setSubmitCompleted(true);
   }
 
+  function guests(number:number) {
+    setNumberOfGuests(number);
+    console.log(numberOfGuests)
+  }
+
   return (
     <>
       <CalendarContainer>
@@ -53,7 +60,7 @@ export function BookingCalendar() {
               <span className='bold'>Valt datum:</span>{' '}
               {date.toLocaleDateString()}
             </p>
-            <TestComponent></TestComponent>
+            <NumberOfGuests guests={guests}></NumberOfGuests>
             <button className='freeTables' onClick={findTable}>Se lediga bord</button>
           </div>
           {showTimes && (

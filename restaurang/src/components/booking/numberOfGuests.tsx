@@ -1,7 +1,12 @@
 import { useState } from "react";
 import { DropDownContainer, DropDownHeader, DropDownList, DropDownListContainer, ListItem } from "./mockups/stylecomponens/dropdown";
 
-export function TestComponent (){
+
+interface ITestProps{
+    guests(arg: number): void
+}
+
+export function NumberOfGuests (props:ITestProps){
 
     const options = [1, 2, 3, 4, 5, 6];
 
@@ -13,6 +18,7 @@ export function TestComponent (){
     function onOptionClicked(option:number) {
       setSelectedOption(option);
       setIsOpen(false);
+      props.guests(option);
     };
 
     return(
