@@ -1,7 +1,9 @@
 import { useState } from "react";
 import Calendar from 'react-calendar';
 import { BookingForm } from "./bookingform";
-import { CalendarContainer } from "./calendarstyles";
+
+import { FindFreeTables } from "./findfreetables";
+import { CalendarContainer } from "./mockups/stylecomponens/calendarstyles";
 
 export function BookingCalendar() {
   const [date, setDate] = useState(new Date());
@@ -12,9 +14,13 @@ export function BookingCalendar() {
   
 
 
-  function callAPI() {
+  function findTable() {
     setShowTimes(true);
     setShowForm(false);
+
+    //Kalla på API för att hitta om det finns lediga bord
+    //Skicka med datum
+    FindFreeTables(date.toLocaleString())
   };
   function resetShow() {
     setShowTimes(false);
@@ -47,7 +53,7 @@ export function BookingCalendar() {
               <span className='bold'>Valt datum:</span>{' '}
               {date.toLocaleDateString()}
             </p>
-            <button className='freeTables' onClick={callAPI}>Se lediga bord</button>
+            <button className='freeTables' onClick={findTable}>Se lediga bord</button>
           </div>
           {showTimes && (
             <div className='freeTime'>

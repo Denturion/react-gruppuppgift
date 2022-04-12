@@ -3,7 +3,7 @@ import { ICustomer } from "../interfaces/ICustomer";
 
 
 export function pushBooking(time:string, mydate:string, customer:ICustomer){
-    
+
     let restaurantID = "624ff35c138a40561e115f1e";
 
     let bookingToPush:IBookingCustomer = {
@@ -14,5 +14,5 @@ export function pushBooking(time:string, mydate:string, customer:ICustomer){
         customer: customer
     }
 
-    return(<></>);
+    return {};
 }
