@@ -4,6 +4,7 @@ import { BookingForm } from "./bookingform";
 
 import { FindFreeTables } from "./findfreetables";
 import { CalendarContainer } from "./mockups/stylecomponens/calendarstyles";
+import { TestComponent } from "./test";
 
 export function BookingCalendar() {
   const [date, setDate] = useState(new Date());
@@ -11,7 +12,7 @@ export function BookingCalendar() {
   const [showForm, setShowForm] = useState(false);
   const [bookingTime, setbookingTime] = useState("");
   const [submitCompleted, setSubmitCompleted] = useState(false);
-  
+
 
 
   function findTable() {
@@ -31,7 +32,7 @@ export function BookingCalendar() {
     setbookingTime(time);
     setShowForm(true);
   };
-  function submitComplete(){
+  function submitComplete() {
     setSubmitCompleted(true);
   }
 
@@ -47,12 +48,12 @@ export function BookingCalendar() {
           prevAriaLabel='Go to prev month' />
 
         <div className='info'>
-
           <div>
             <p className='text-center'>
               <span className='bold'>Valt datum:</span>{' '}
               {date.toLocaleDateString()}
             </p>
+            <TestComponent></TestComponent>
             <button className='freeTables' onClick={findTable}>Se lediga bord</button>
           </div>
           {showTimes && (
@@ -68,7 +69,7 @@ export function BookingCalendar() {
       </CalendarContainer>
 
       {(showForm && !submitCompleted) && (<BookingForm time={bookingTime} myDate={date.toLocaleString()} submitComplete={submitComplete}></BookingForm>)}
-      {submitCompleted &&(
+      {submitCompleted && (
         <div>
           KLAAAR
         </div>

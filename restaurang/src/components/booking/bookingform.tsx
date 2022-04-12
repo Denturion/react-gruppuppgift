@@ -11,11 +11,6 @@ interface IBookingFormProps{
 }
 export function BookingForm(props: IBookingFormProps) {
 
-    //Props innehåller tiden och datumet som personen tryckt på vi behöver lägga till antalet personer också
-
-    let date = props.myDate;
-    let time = props.time;
-
     const [newUser, setNewUser] = useState<ICustomer>({
         name: "",
         lastname: "",
