@@ -1,0 +1,77 @@
+.menu{
+    color: #FFDADA;
+
+    .menuselect{
+        display: flex;
+        gap: 8px;
+        position: fixed;
+        h3{
+            cursor: pointer;
+        }
+        .active{
+            text-decoration: underline;
+        }
+    }
+    h4{
+        font-size: 24px;
+        text-transform: uppercase;
+        width: 63%;
+    }
+    h5{
+        font-size: 20px;
+        color: #FFB2B2;
+        margin-top: -30px;
+    }
+    p{
+        font-size: 16px;
+        width: 63%;
+        color:#FFDADA;
+    }
+ 
+    .Burgers{
+        .MenuDiv{
+            width: 450px;
+            height: 200px;
+            margin: auto;
+            padding: 30px;
+            .burgerImg{
+                width: 200px;
+                position: relative;
+                top: -200px;
+                left: 260px;
+            }
+        }
+    }
+    .sides{
+        .MenuDiv{
+            width: 450px;
+            height: 100px;
+            margin: auto;
+            padding: 30px;
+            .sidesImg{
+                width: 200px;
+                position: relative;
+                top: -190px;
+                left: 260px;
+            }
+            &:last-child{
+                height: 300px;
+            }
+        }
+    }
+    .MenuDiv{
+        width: 450px;
+        height: 200px;
+        margin: auto;
+        padding: 30px;
+        img{
+            height: 180px;
+            position: relative;
+            top: -170px;
+            left: 260px;
+        }
+        p{
+            width: 60%;
+        }
+    }
+}
