@@ -49,7 +49,9 @@ export function Layout() {
           </ul>
         </div>
       </nav>
+      <main>
+        <Outlet></Outlet>
+      </main>
     </>
   );
 }
-<Outlet></Outlet>;
