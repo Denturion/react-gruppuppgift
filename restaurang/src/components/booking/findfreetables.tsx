@@ -4,17 +4,17 @@ import { IBooking } from "../interfaces/IBooking";
 
 interface IFindFreeTables{
     date:string,
-    numberOfGuests:number
+    numberOfGuests:number,
 }
 
 export function FindFreeTables(props: IFindFreeTables){
 
-    console.log(props.date)
-    let numberOfTables:number = props.numberOfGuests/6;
+    let numberOfTables:number = props.numberOfGuests/6; //=2
     let freeTables18:number = 15;
     let freeTables21:number = 15;
-    //const [show18, setShow18] = useState(true);
-    //const [show21, setShow21] = useState(true);
+
+    let show18: boolean = false;
+    let show21: boolean = false;
 
         axios.get<IBooking[]>("https://school-restaurant-api.azurewebsites.net/booking/restaurant/624ff35c138a40561e115f1e")
             .then((response) => {
@@ -27,9 +27,16 @@ export function FindFreeTables(props: IFindFreeTables){
                 freeTables21 = freeTables21-bookingTime21.length;
 
 
-                console.log(bookingsOfTheDay);
-                console.log(bookingTime21);
-                console.log(freeTables21);
+                if (freeTables21 >= numberOfTables){
+                    show21=true;
+                }
+                if (freeTables18 >= numberOfTables){
+                    show18=true;
+                }
+
+                console.log(show18)
+                console.log(show21)
+
 
 
             });
@@ -42,8 +49,6 @@ export function FindFreeTables(props: IFindFreeTables){
 
 //IF datumresponse > 0 (Kanske inte behövs)
 
-//if Varabel21 > 0 Visa 21 (show9=true)
-//if Varavel18 > 0 visa 18 (show6=true)
 //if varaibel18===0 && varaiabel21===0 allt är bokat (show9 och show6 = false)
 
 //else visa allt (Kanske inte behövs)

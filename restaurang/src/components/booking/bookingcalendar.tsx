@@ -18,6 +18,8 @@ export function BookingCalendar() {
   const [bookingTime, setbookingTime] = useState("");
   const [submitCompleted, setSubmitCompleted] = useState(false);
   const [numberOfGuests, setNumberOfGuests] = useState(1);
+  const [show18, setShow18] = useState(true);
+  const [show21, setShow21] = useState(true);
 
 
   function guests(number: number) {
@@ -33,7 +35,7 @@ export function BookingCalendar() {
     //Skicka med datum
     let sendDateAndGuest:IFindFreeTables = {
       date: date.toLocaleDateString(),
-      numberOfGuests: numberOfGuests
+      numberOfGuests: numberOfGuests,
     }
     FindFreeTables(sendDateAndGuest);
   };
