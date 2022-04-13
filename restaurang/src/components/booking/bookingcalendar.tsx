@@ -27,7 +27,7 @@ export function BookingCalendar() {
 
     //Kalla på API för att hitta om det finns lediga bord
     //Skicka med datum
-    FindFreeTables(date.toLocaleString(), numberOfGuests);
+    FindFreeTables(date.toLocaleDateString(), numberOfGuests);
   };
 
   function timeBooking(time: string) {
