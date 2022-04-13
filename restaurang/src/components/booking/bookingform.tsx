@@ -1,31 +1,17 @@
-import { ChangeEvent, useState } from "react"
+import { ChangeEvent, FormEvent, FormEventHandler, useState } from "react"
+import { ICustomer } from "../interfaces/ICustomer";
+import { NumberOfGuests } from "./numberOfGuests";
+import { postBooking } from "./postbooking"
 
-interface ICustomer {
-    name: string,
-    lastname: string,
-    email: string,
-    phone: string
-}
-interface IBooking {
-    restautantID: string,
-    date: string,
+
+
+interface IBookingFormProps {
     time: string,
-    numberOfGuests: number,
-    customer: ICustomer
-}
-
-interface IBookingFormProps{
-    time:string,
-    myDate:string
-    //submitComplete: (arg: boolean) => null
+    myDate: string
+    guests: number;
+    submitComplete(arg: boolean): void
 }
 export function BookingForm(props: IBookingFormProps) {
-
-    //Props innehåller tiden och datumet som personen tryckt på vi behöver lägga till antalet personer också
-
-    let restaurantID = "624ff35c138a40561e115f1e";
-    let date = props.myDate;
-    let time = props.time;
 
     const [newUser, setNewUser] = useState<ICustomer>({
         name: "",
@@ -39,37 +25,37 @@ export function BookingForm(props: IBookingFormProps) {
 
         setNewUser({ ...newUser, [name]: e.target.value });
 
-        console.log(newUser);
     };
 
-    function handleSubmit() {
-        hejhopp();
-    }
+    function handleSubmit(e: FormEvent<HTMLFormElement>) {
+        e.preventDefault();
 
-    function hejhopp() {
-        console.log(newUser);
-        //props.submitComplete(true);
+        //PUSH BOOKING TO API
+        postBooking(props.myDate, props.time, props.guests, newUser);
+
+        //Submit Complete, show message in Parent
+        props.submitComplete(true);
     }
 
     return (
         <>
-        <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
 
-            <label htmlFor="name">Förnamn:</label>
-            <input id="name" type="text" name="name" value={newUser.name} onChange={handleChange} />
+                <label htmlFor="name">Förnamn:</label>
+                <input id="name" type="text" name="name" value={newUser.name} onChange={handleChange} />
 
-            <label htmlFor="lastname">Efternamn:</label>
-            <input id="lastname" type="text" name="lastname" value={newUser.lastname} onChange={handleChange} />
+                <label htmlFor="lastname">Efternamn:</label>
+                <input id="lastname" type="text" name="lastname" value={newUser.lastname} onChange={handleChange} />
 
-            <label htmlFor="email">E-post:</label>
-            <input id="email" type="email" name="email" value={newUser.email} onChange={handleChange} />
+                <label htmlFor="email">E-post:</label>
+                <input id="email" type="email" name="email" value={newUser.email} onChange={handleChange} />
 
-            <label htmlFor="phone">Telefonnummer:</label>
-            <input id="phone" type="text" name="phone" value={newUser.phone} onChange={handleChange} />
+                <label htmlFor="phone">Telefonnummer:</label>
+                <input id="phone" type="text" name="phone" value={newUser.phone} onChange={handleChange} />
 
 
-            <input type="submit" value="Submit" />
-        </form>
+                <input type="submit" value="Submit" />
+            </form>
         </>
     )
 

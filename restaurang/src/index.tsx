@@ -10,6 +10,7 @@ import { NotFound } from "./components/notfound/notfound";
 import { Layout } from "./components/layout/layout";
 import { BookingCalendar } from "./components/booking/bookingcalendar";
 import { Booking } from "./components/booking/booking";
+import { Admin } from "./components/admin/admin";
 
 
 const container = document.getElementById("root");
@@ -24,6 +25,7 @@ root.render(
           <Route path="/main" element={<Main />} />
           <Route path="/booking" element={<Booking />} />
           <Route path="/contact" element={<Contact />} />
+          <Route path="/admin" element={<Admin />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>

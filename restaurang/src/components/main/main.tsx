@@ -1,10 +1,14 @@
 import { Menu } from "./menu";
 import mainburger from '../../images/mainpageBurger.png'
+import { useNavigate } from "react-router-dom";
 
 export function Main () {
 
+    const navigate = useNavigate();
+
     function toBookingPage(){
         //Länka till bokningssidan
+        navigate('/booking');
     }
 
     return (

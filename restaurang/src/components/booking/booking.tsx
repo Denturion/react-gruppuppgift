@@ -1,12 +1,10 @@
 import { BookingCalendar } from "./bookingcalendar";
 import { BookingForm } from "./bookingform";
-import { CreateMockBooking } from "./createmockbooking";
+import "./css/booking.css";
 
-export function Booking () {
-    return (
-    <>
-    <BookingCalendar></BookingCalendar>
-        </>)
-    
+
+export function Booking() {
+    return (<BookingCalendar></BookingCalendar>)
+
 
 }
