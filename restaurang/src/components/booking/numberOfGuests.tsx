@@ -21,8 +21,8 @@ export function NumberOfGuests (props:ITestProps){
     };
 
     return(
-        <>
-        <h1>Välj antal personer</h1>
+        <div className="dropDown">
+        <p>Välj antal personer:</p>
         <DropDownContainer>
         <DropDownHeader onClick={toggle}>
           {selectedOption}
@@ -39,6 +39,6 @@ export function NumberOfGuests (props:ITestProps){
           </DropDownListContainer>
         )}
       </DropDownContainer>
-      </>
+      </div>
         );
 }
