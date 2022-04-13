@@ -12,6 +12,7 @@
 
 .menu .menuselect h3 {
   cursor: pointer;
+  color: #FFB2B2;
 }
 
 .menu .menuselect .active {
