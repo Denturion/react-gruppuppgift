@@ -1,3 +1,7 @@
 .mainPageHamburger{
   width:300px;
 }
+
+::-webkit-scrollbar {
+  display: none;
+}

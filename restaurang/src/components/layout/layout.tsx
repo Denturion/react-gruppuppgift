@@ -9,7 +9,7 @@ export function Layout() {
   return (
     <>
       <nav className="navigation">
-        <Link to="/" className="Logo">
+        <Link to="/main" className="Logo">
           Britney Burgers
         </Link>
 
