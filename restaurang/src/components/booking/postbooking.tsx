@@ -14,5 +14,7 @@ export function postBooking(time: string, mydate: string, guests: number, custom
         customer: customer
     }
 
+    //När vi pushar, on number of Guest > 6 så måste vi pusha samma bokning två gånger
+
     return {};
 }
