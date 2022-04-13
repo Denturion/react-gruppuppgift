@@ -73,7 +73,7 @@
       left: 0;
       width: 100%;
       height: calc(100vh - 60px);
-      background-color: black;
+      background-color: rgb(0, 0, 0);
       border-top: 1px solid pink;
       display: none;
     }
