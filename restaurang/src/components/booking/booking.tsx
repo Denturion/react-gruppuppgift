@@ -2,11 +2,8 @@ import { BookingCalendar } from "./bookingcalendar";
 import { BookingForm } from "./bookingform";
 
 
-export function Booking () {
-    return (
-    <>
-    <BookingCalendar></BookingCalendar>
-        </>)
-    
+export function Booking() {
+    return (<BookingCalendar></BookingCalendar>)
+
 
 }

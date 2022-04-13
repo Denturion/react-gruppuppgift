@@ -3,7 +3,7 @@ import Calendar from 'react-calendar';
 import { BookingForm } from "./bookingform";
 
 import { FindFreeTables } from "./findfreetables";
-import { CalendarContainer } from "./mockups/stylecomponens/calendarstyles";
+import { CalendarContainer } from "./stylecomponens/calendarstyles";
 import { NumberOfGuests } from "./numberOfGuests";
 
 
@@ -16,6 +16,13 @@ export function BookingCalendar() {
   const [numberOfGuests, setNumberOfGuests] = useState(1);
 
 
+  function guests(number: number) {
+    setNumberOfGuests(number);
+
+    //Synkar inte direkt!!
+    console.log(numberOfGuests);
+  }
+
 
   function findTable() {
     setShowTimes(true);
@@ -25,25 +32,23 @@ export function BookingCalendar() {
     //Skicka med datum
     FindFreeTables(date.toLocaleString())
   };
-  function resetShow() {
-    setShowTimes(false);
-    setShowForm(false);
-  };
 
   function timeBooking(time: string) {
     setbookingTime(time);
     setShowForm(true);
   };
+
+
+  function resetShow() {
+    setShowTimes(false);
+    setShowForm(false);
+  };
+
   function submitComplete() {
     setSubmitCompleted(true);
   }
 
-  function guests(number:number) {
-    setNumberOfGuests(number);
 
-    //Synkar inte direkt!!
-    console.log(numberOfGuests);
-  }
 
   return (
     <>
@@ -77,7 +82,7 @@ export function BookingCalendar() {
         </div>
       </CalendarContainer>
 
-      {(showForm && !submitCompleted) && (<BookingForm time={bookingTime} myDate={date.toLocaleString()} submitComplete={submitComplete}></BookingForm>)}
+      {(showForm && !submitCompleted) && (<BookingForm time={bookingTime} myDate={date.toLocaleString()} guests={numberOfGuests} submitComplete={submitComplete}></BookingForm>)}
       {submitCompleted && (
         <div>
           KLAAAR
