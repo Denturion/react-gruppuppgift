@@ -1,7 +1,7 @@
-export function NotFound () {
-
-    return (<>
-        </>)
-    
-
+export function NotFound() {
+  return (
+    <>
+      <div>404: Page Not Found</div>
+    </>
+  );
 }
