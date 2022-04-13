@@ -55,17 +55,4 @@ export function FindFreeTables(props: IFindFreeTables) {
             )}
     </>);
 
-
-    //Fetcha alla bokningar
-    //SVAR response
-
-    //IF datumresponse > 0 (Kanske inte behövs)
-
-    //if varaibel18===0 && varaiabel21===0 allt är bokat (show9 och show6 = false)
-
-    //else visa allt (Kanske inte behövs)
-    //Fetcha alla bokningar
-
-    //Gå igenom mockfetch för att lösa logiken
-
 }

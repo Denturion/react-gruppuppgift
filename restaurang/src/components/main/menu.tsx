@@ -2,6 +2,7 @@ import opsBurger from '../../images/opsburger.png'
 import hitmeBurger from '../../images/hitmeburger.png'
 import toxicBurger from '../../images/toxicburger.png'
 import womanizerBurger from '../../images/womanburger.png'
+import "./css/menu.css";
 
 export function Menu () {
 

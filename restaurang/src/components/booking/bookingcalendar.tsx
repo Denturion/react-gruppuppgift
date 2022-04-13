@@ -6,13 +6,6 @@ import { FindFreeTables } from "./findfreetables";
 import { CalendarContainer } from "./stylecomponens/calendarstyles";
 import { NumberOfGuests } from "./numberOfGuests";
 
-interface IFindFreeTables{
-  date:string,
-  numberOfGuests:number,
-  submitComplete18(arg: boolean): void
-  submitComplete21(arg: boolean): void
-}
-
 export function BookingCalendar() {
   const [date, setDate] = useState(new Date());
   const [showTimes, setShowTimes] = useState(false);

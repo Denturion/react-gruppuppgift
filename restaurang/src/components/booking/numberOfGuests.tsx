@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { DropDownContainer, DropDownHeader, DropDownList, DropDownListContainer, ListItem } from "./stylecomponens/dropdown";
 
-interface ITestProps{
+interface INumberOfGuestsProps{
     guests(arg: number): void
 };
 
-export function NumberOfGuests (props:ITestProps){
+export function NumberOfGuests (props:INumberOfGuestsProps){
 
     const options = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 

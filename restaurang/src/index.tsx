@@ -11,6 +11,7 @@ import { Layout } from "./components/layout/layout";
 import { BookingCalendar } from "./components/booking/bookingcalendar";
 import { Booking } from "./components/booking/booking";
 import { Admin } from "./components/admin/admin";
+import { Menu } from "./components/main/menu";
 
 
 const container = document.getElementById("root");
@@ -23,6 +24,7 @@ root.render(
         <Route path="/" element={<Layout />}>
           <Route index element={<App />} />
           <Route path="/main" element={<Main />} />
+          <Route path="/menu" element={<Menu />} />
           <Route path="/booking" element={<Booking />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/admin" element={<Admin />} />

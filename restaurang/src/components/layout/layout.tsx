@@ -28,7 +28,7 @@ export function Layout() {
         >
           <ul>
             <li>
-              <Link to="/main" className="Links" onClick={toggle}>
+              <Link to="/menu" className="Links" onClick={toggle}>
                 Meny
               </Link>
             </li>
