@@ -5,16 +5,19 @@ import { IBooking } from "../interfaces/IBooking";
 interface IFindFreeTables{
     date:string,
     numberOfGuests:number,
+    time(arg: string): void
 }
 
 export function FindFreeTables(props: IFindFreeTables){
 
-    let numberOfTables:number = props.numberOfGuests/6; //=2
-    let freeTables18:number = 15;
-    let freeTables21:number = 15;
+    let numberOfTables:number = props.numberOfGuests/6; 
+    let freeTables18:number = 2;
+    let freeTables21:number = 2;
 
-    let show18: boolean = false;
-    let show21: boolean = false;
+    const [show18, setShow18] = useState(false);
+    const [show21, setShow21] = useState(false);
+
+
 
         axios.get<IBooking[]>("https://school-restaurant-api.azurewebsites.net/booking/restaurant/624ff35c138a40561e115f1e")
             .then((response) => {
@@ -26,22 +29,29 @@ export function FindFreeTables(props: IFindFreeTables){
                 let bookingTime21 = bookingsOfTheDay.filter((filterByTime) => filterByTime.time.includes("21.00"));
                 freeTables21 = freeTables21-bookingTime21.length;
 
-
-                if (freeTables21 >= numberOfTables){
-                    show21=true;
-                }
                 if (freeTables18 >= numberOfTables){
-                    show18=true;
+                    setShow18(true);
                 }
-
-                console.log(show18)
-                console.log(show21)
+                if (freeTables21 >= numberOfTables){
+                    setShow21(true);
+                }
 
 
 
             });
 
-            return(<></>);
+            return(<>
+            <div className='freeTime'>
+              <p>Tryck på tiden för att komma vidare till bokning</p>
+              <div className='times'>
+                {show18 && 
+                <>
+                <button className='freeTables' onClick={() => { props.time("18.00") }}>18.00</button>
+                </>
+                }
+                {show21 && <button className='freeTables' onClick={() => { props.time("21.00") }}>21.00</button>}
+              </div>
+            </div></>);
 
 
     //Fetcha alla bokningar
