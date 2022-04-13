@@ -6,6 +6,10 @@ import { FindFreeTables } from "./findfreetables";
 import { CalendarContainer } from "./stylecomponens/calendarstyles";
 import { NumberOfGuests } from "./numberOfGuests";
 
+interface IFindFreeTables{
+  date:string,
+  numberOfGuests:number
+}
 
 export function BookingCalendar() {
   const [date, setDate] = useState(new Date());
@@ -27,7 +31,11 @@ export function BookingCalendar() {
 
     //Kalla på API för att hitta om det finns lediga bord
     //Skicka med datum
-    FindFreeTables(date.toLocaleString(), numberOfGuests);
+    let sendDateAndGuest:IFindFreeTables = {
+      date: date.toLocaleDateString(),
+      numberOfGuests: numberOfGuests
+    }
+    FindFreeTables(sendDateAndGuest);
   };
 
   function timeBooking(time: string) {

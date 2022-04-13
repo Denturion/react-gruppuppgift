@@ -1,14 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { IBooking } from "../interfaces/IBooking";
+import { ICustomer } from "../interfaces/ICustomer";
 
-export interface ICustomerInfo {
-    id: string,
-    name: string,
-    lastname: string,
-    email: string,
-    phone: string,
-}
 
 export function Admin() {
     const [bookingList, setBookingList] = useState<IBooking[]>([{ id: "", restaurantId: "", date: "", time: "", numberOfGuests: 0, customerId: "" }]);
@@ -57,7 +51,7 @@ export function Admin() {
                 <p>{booking.date}</p>
                 const customerid = booking.customerId;
                 const url:string = `https://school-restaurant-api.azurewebsites.net/customer/${customerid}`;
-                 axios.get<ICustomerInfo>(url)
+                 axios.get<ICustomer>(url)
                      .then((customer) => {
                         <p>{customer.data.name}</p>
                      })
