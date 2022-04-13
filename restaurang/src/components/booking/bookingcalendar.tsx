@@ -40,7 +40,9 @@ export function BookingCalendar() {
 
   function guests(number:number) {
     setNumberOfGuests(number);
-    console.log(numberOfGuests)
+
+    //Synkar inte direkt!!
+    console.log(numberOfGuests);
   }
 
   return (

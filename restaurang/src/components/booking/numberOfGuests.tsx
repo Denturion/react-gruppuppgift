@@ -1,10 +1,9 @@
 import { useState } from "react";
 import { DropDownContainer, DropDownHeader, DropDownList, DropDownListContainer, ListItem } from "./mockups/stylecomponens/dropdown";
 
-
 interface ITestProps{
     guests(arg: number): void
-}
+};
 
 export function NumberOfGuests (props:ITestProps){
 
@@ -26,7 +25,7 @@ export function NumberOfGuests (props:ITestProps){
         <h1>Välj antal personer</h1>
         <DropDownContainer>
         <DropDownHeader onClick={toggle}>
-          {selectedOption || 1}
+          {selectedOption}
         </DropDownHeader>
         {isOpen && (
           <DropDownListContainer>
