@@ -1,6 +1,7 @@
 import { ChangeEvent, FormEvent, FormEventHandler, useState } from "react"
 import { ICustomer } from "../interfaces/ICustomer";
-import { pushBooking } from "./pushbooking"
+import { NumberOfGuests } from "./numberOfGuests";
+import { postBooking } from "./postbooking"
 
 
 
@@ -30,12 +31,11 @@ export function BookingForm(props: IBookingFormProps) {
         e.preventDefault();
 
         //PUSH BOOKING TO API
-        pushBooking(props.myDate, props.time, props.guests, newUser);
+        postBooking(props.myDate, props.time, props.guests, newUser);
 
         //Submit Complete, show message in Parent
         props.submitComplete(true);
     }
-
 
     return (
         <>

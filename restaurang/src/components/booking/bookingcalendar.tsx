@@ -48,8 +48,8 @@ export function BookingCalendar() {
     setSubmitCompleted(true);
   }
 
-
-  console.log(numberOfGuests);
+  console.log(numberOfGuests)
+  console.log(numberOfTables);
   return (
     <>
       <CalendarContainer>
