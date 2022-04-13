@@ -1,9 +1,10 @@
 import { Router, Route, Link, Outlet } from "react-router-dom";
-import "./layout.css";
+import "./css/layout.css";
 import { useEffect, useState } from "react";
 
 export function Layout() {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
+  const toggle = () => setIsNavExpanded(!isNavExpanded);
 
   return (
     <>
@@ -27,22 +28,22 @@ export function Layout() {
         >
           <ul>
             <li>
-              <Link to="/main" className="Links">
+              <Link to="/main" className="Links" onClick={toggle}>
                 Meny
               </Link>
             </li>
             <li>
-              <Link to="/booking" className="Links">
+              <Link to="/booking" className="Links" onClick={toggle}>
                 Boka
               </Link>
             </li>
             <li>
-              <Link to="/contact" className="Links">
+              <Link to="/contact" className="Links" onClick={toggle}>
                 Kontakt
               </Link>
             </li>
             <li>
-              <Link to="/admin" className="Links">
+              <Link to="/admin" className="Links" onClick={toggle}>
                 Admin
               </Link>
             </li>
