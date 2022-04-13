@@ -1,5 +1,5 @@
 import { Router, Route, Link, Outlet } from "react-router-dom";
-import "./layout.css";
+import "./css/layout.css";
 import { useEffect, useState } from "react";
 
 export function Layout() {

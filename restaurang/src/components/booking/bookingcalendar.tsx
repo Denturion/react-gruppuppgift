@@ -14,13 +14,10 @@ export function BookingCalendar() {
   const [bookingTime, setbookingTime] = useState("");
   const [submitCompleted, setSubmitCompleted] = useState(false);
   const [numberOfGuests, setNumberOfGuests] = useState(1);
-  const [numberOfTables, setNumberOfTables] = useState(1);
 
 
   function guests(number: number) {
     setNumberOfGuests(number);
-
-    setNumberOfTables(numberOfGuests/6);
   }
 
 
@@ -38,7 +35,6 @@ export function BookingCalendar() {
     setShowForm(true);
   };
 
-
   function resetShow() {
     setShowTimes(false);
     setShowForm(false);
@@ -48,8 +44,6 @@ export function BookingCalendar() {
     setSubmitCompleted(true);
   }
 
-  console.log(numberOfGuests)
-  console.log(numberOfTables);
   return (
     <>
       <CalendarContainer>
