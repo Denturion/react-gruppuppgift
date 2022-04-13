@@ -2,20 +2,36 @@ import axios from "axios";
 import { useState } from "react";
 import { IBooking } from "../interfaces/IBooking";
 
-export function FindFreeTables(date:string, numberOfGuests:number){
+interface IFindFreeTables{
+    date:string,
+    numberOfGuests:number
+}
 
-    let numberOfTables = numberOfGuests/6;
+export function FindFreeTables(props: IFindFreeTables){
+
+    console.log(props.date)
+    let numberOfTables:number = props.numberOfGuests/6;
+    let freeTables18:number = 15;
+    let freeTables21:number = 15;
+    //const [show18, setShow18] = useState(true);
+    //const [show21, setShow21] = useState(true);
 
         axios.get<IBooking[]>("https://school-restaurant-api.azurewebsites.net/booking/restaurant/624ff35c138a40561e115f1e")
             .then((response) => {
 
-                console.log(date);
-                let test= response.data.filter((filterByDate)=> filterByDate.date.includes(date));
+                let bookingsOfTheDay= response.data.filter((filterByDate)=> filterByDate.date.includes(props.date));
 
-                console.log(test);
+                let bookingTime18 = bookingsOfTheDay.filter((filterByTime) => filterByTime.time.includes("18.00"));
+                freeTables18 = freeTables18-bookingTime18.length;
+                let bookingTime21 = bookingsOfTheDay.filter((filterByTime) => filterByTime.time.includes("21.00"));
+                freeTables21 = freeTables21-bookingTime21.length;
 
-                //response.data.filter((data: IBooking) => data.date.includes(date.toLocaleDateString()));
-                //setBookingList(apiBookings);
+
+                console.log(bookingsOfTheDay);
+                console.log(bookingTime21);
+                console.log(freeTables21);
+
+
             });
 
             return(<></>);
@@ -24,19 +40,7 @@ export function FindFreeTables(date:string, numberOfGuests:number){
     //Fetcha alla bokningar
 //SVAR response
 
-//Filtrera response efter datum "Datumresponse" [] [objekt1, objekt2]
-
 //IF datumresponse > 0 (Kanske inte behövs)
-
-//Variablel18 = 15
-//Variabel21 = 15
-
-//Filtera "datumresponse" efter tid
-//Tid18 []
-//Tid21 []
-
-//Variabel18 - tid18.legnth
-//Variabel21 - tid21.legnth
 
 //if Varabel21 > 0 Visa 21 (show9=true)
 //if Varavel18 > 0 visa 18 (show6=true)
