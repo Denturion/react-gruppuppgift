@@ -18,8 +18,6 @@ export function Main() {
         <img className="mainPageHamburger" src={mainburger} />
         <button onClick={toBookingPage}>Boka bord</button>
       </div>
-      <h3>Burgare | Tillbehör | Dryck</h3>
-      <Menu></Menu>
     </>
   );
 }

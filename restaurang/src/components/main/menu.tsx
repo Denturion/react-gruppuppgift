@@ -8,6 +8,7 @@ export function Menu () {
 
     return (
     <>
+    <h3>Burgare | Tillbehör | Dryck</h3>
         <div className="burgerMenuDiv">
             <h4>Oops I did it again</h4>
             <h5>135kr</h5>
