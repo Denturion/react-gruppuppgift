@@ -1,4 +1,4 @@
-export function FindFreeTables(date:string){
+export function FindFreeTables(date:string, numberOfTablesNeeded:number){
 
     //Fetcha alla bokningar
 

@@ -14,13 +14,13 @@ export function BookingCalendar() {
   const [bookingTime, setbookingTime] = useState("");
   const [submitCompleted, setSubmitCompleted] = useState(false);
   const [numberOfGuests, setNumberOfGuests] = useState(1);
+  const [numberOfTables, setNumberOfTables] = useState(1);
 
 
   function guests(number: number) {
     setNumberOfGuests(number);
 
-    //Synkar inte direkt!!
-    console.log(numberOfGuests);
+    setNumberOfTables(numberOfGuests/6);
   }
 
 
@@ -30,7 +30,7 @@ export function BookingCalendar() {
 
     //Kalla på API för att hitta om det finns lediga bord
     //Skicka med datum
-    FindFreeTables(date.toLocaleString())
+    FindFreeTables(date.toLocaleString(), numberOfGuests);
   };
 
   function timeBooking(time: string) {
@@ -49,7 +49,7 @@ export function BookingCalendar() {
   }
 
 
-
+  console.log(numberOfGuests);
   return (
     <>
       <CalendarContainer>

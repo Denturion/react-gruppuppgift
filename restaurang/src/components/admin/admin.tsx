@@ -43,19 +43,26 @@ export function Admin() {
 
     //    });
 
+
+    //USEEFFECT VARJE GÅNG BOOKINGLIST ÄNDRAS
+    //Pusha det till en lista (customerlist)
+    //I HTML mappa i bookinlist för att sriva ut bokning
+    //Matcha bookinglist.customerID med customerid i customerlist
+    //Skriv ut customer från customerlist 
+
     return (
         <div>
             <p>Admin works!</p>
-            {/* {bookingList.map(booking => {
+            { bookingList.map(booking => {
                 <p>{booking.date}</p>
                 const customerid = booking.customerId;
-                const url:string = `https://school-restaurant-api.azurewebsites.net/customer/`+customerid;
+                const url:string = `https://school-restaurant-api.azurewebsites.net/customer/${customerid}`;
                  axios.get<ICustomerInfo>(url)
                      .then((customer) => {
                         <p>{customer.data.name}</p>
                      })
             })
-            } */}
+             }
         </div>
     )
 

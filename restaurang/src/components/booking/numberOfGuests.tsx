@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { DropDownContainer, DropDownHeader, DropDownList, DropDownListContainer, ListItem } from "./mockups/stylecomponens/dropdown";
+import { DropDownContainer, DropDownHeader, DropDownList, DropDownListContainer, ListItem } from "./stylecomponens/dropdown";
 
 interface ITestProps{
     guests(arg: number): void
@@ -7,7 +7,7 @@ interface ITestProps{
 
 export function NumberOfGuests (props:ITestProps){
 
-    const options = [1, 2, 3, 4, 5, 6];
+    const options = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState(1);
