@@ -49,6 +49,7 @@
   position: relative;
   top: -200px;
   left: 260px;
+  z-index: -1;
 }
 
 .menu .sides .MenuDiv {
@@ -63,6 +64,7 @@
   position: relative;
   top: -190px;
   left: 260px;
+  z-index: -1;
 }
 
 .menu .sides .MenuDiv:last-child {
@@ -81,6 +83,7 @@
   position: relative;
   top: -170px;
   left: 260px;
+  z-index: -1;
 }
 
 .menu .MenuDiv p {

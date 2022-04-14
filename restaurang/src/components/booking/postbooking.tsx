@@ -19,6 +19,7 @@ export function postBooking(time: string, mydate: string, guests: number, custom
 
     let numberOfTables = guests/6;
 
+    //Just nu pushar vi två bokningar med antal personer samma två gånger om vi valt mer än 6 gånger.
     for (var i=numberOfTables; i > 0 ; i--){
         axios.post<IBooking>("https://school-restaurant-api.azurewebsites.net/booking/create", bookingToPost)
         .then(function(response){
@@ -29,7 +30,6 @@ export function postBooking(time: string, mydate: string, guests: number, custom
           });
           console.log(i);
     }
-    //När vi pushar, on number of Guest > 6 så måste vi pusha samma bokning två gånger
 
     return {};
 }

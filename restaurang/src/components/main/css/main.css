@@ -1,1 +1,65 @@
-/* No CSS *//*# sourceMappingURL=main.css.map */
+.mainpage {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 60%;
+  height: 80vh;
+  margin: auto;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.mainpage .text {
+  width: 100%;
+}
+
+.mainpage .text h1 {
+  font-size: 54px;
+  font-weight: 400;
+  text-align: right;
+  color: #fa9999;
+}
+
+.mainpage .text h2 {
+  margin-top: -30px;
+  font-weight: 400;
+  text-align: right;
+  color: #fbc9c9;
+}
+
+.mainpage .text .button {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+}
+
+.mainpage .text .button button {
+  margin: 3px;
+  background-color: #fa9999;
+  border: 0;
+  border-radius: 3px;
+  color: black;
+  padding: 10px 15px;
+  text-transform: uppercase;
+}
+
+.mainpage .text .button button:hover {
+  background-color: #fbc9c9;
+}
+
+.mainpage .text .button button:active {
+  background-color: #fbc9c9;
+}
+
+.mainpage .text .button button:disabled {
+  opacity: 0.5;
+}
+
+.mainpage img {
+  width: 80%;
+}
+/*# sourceMappingURL=main.css.map */
