@@ -5,7 +5,7 @@ export const CalendarContainer = styled.div`
   max-width: 600px;
   position: relative;
   margin: auto;
-  z-index: -1;
+  z-index: 1;
   margin-top: 20px;
   background-color: black;
   padding: 10px;
@@ -44,7 +44,6 @@ export const CalendarContainer = styled.div`
     &:active {
       background-color: #fbc9c9;
     }
-
     &:disabled {
       opacity: 0.5;
     }
