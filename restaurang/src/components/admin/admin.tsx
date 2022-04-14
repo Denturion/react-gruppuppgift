@@ -25,7 +25,13 @@ export function Admin () {
         getBookings()
     }, []);
 
+
+
+        const [customerInfo, setCustomerInfo] = useState<ICustomerInfo>({id: "", name: "", lastname: "", email: "", phone: ""});
+
     // Går igenom varje bokning i listan och gör en axios get. Just nu en oändlig loop
+    // Skapa en ny array med customer info inuti objekten i bookingList??
+
    // bookingList.forEach(function(item, index, array) {
         //axios.get(`https://school-restaurant-api.azurewebsites.net/customer/625044c93d77c8d9b3e011a4`)
         //.then((response) => {
