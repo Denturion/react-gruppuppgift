@@ -45,9 +45,12 @@
   color: black;
   padding: 10px 15px;
   text-transform: uppercase;
+  cursor: pointer;
 }
 
 .mainpage .text .button button:hover {
+  -webkit-transition-duration: 0.1s;
+          transition-duration: 0.1s;
   background-color: #fbc9c9;
 }
 
@@ -59,7 +62,40 @@
   opacity: 0.5;
 }
 
+.mainpage .vertically {
+  height: 300px;
+  width: 50%;
+}
+
+.mainpage .vertically .inner {
+  position: absolute;
+  -webkit-animation: bounce 5s linear infinite alternate;
+          animation: bounce 5s linear infinite alternate;
+}
+
+@-webkit-keyframes bounce {
+  0% {
+    -webkit-transform: scale(110%);
+            transform: scale(110%);
+  }
+  100% {
+    -webkit-transform: scale(100%);
+            transform: scale(100%);
+  }
+}
+
+@keyframes bounce {
+  0% {
+    -webkit-transform: scale(110%);
+            transform: scale(110%);
+  }
+  100% {
+    -webkit-transform: scale(100%);
+            transform: scale(100%);
+  }
+}
+
 .mainpage img {
-  width: 80%;
+  width: 60%;
 }
 /*# sourceMappingURL=main.css.map */

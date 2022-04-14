@@ -15,13 +15,17 @@ export function Main() {
     <>
       <div className="mainpage">
         <div className="text">
-        <h1>BRITNEY BURGERS</h1>
-        <h2>Burgare, drinkar och karaoke</h2>
-        <div className="button">
-        <button onClick={toBookingPage}>Boka bord</button>
+          <h1>BRITNEY BURGERS</h1>
+          <h2>Burgare, drinkar och karaoke</h2>
+          <div className="button">
+            <button onClick={toBookingPage}>Boka bord</button>
+          </div>
         </div>
+        <div className="vertically">
+          <div className="inner">
+            <img className="mainPageHamburger" src={mainburger} />
+          </div>
         </div>
-        <img className="mainPageHamburger" src={mainburger} />
       </div>
     </>
   );

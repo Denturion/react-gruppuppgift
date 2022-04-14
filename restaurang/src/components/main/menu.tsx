@@ -59,8 +59,8 @@ export function Menu() {
                         Dryck</h3>
                 </div>
                 {burger &&
-                    <div className='Burgers'>
-                        <div className="MenuDiv">
+                    <div className="Burgers" id={`${burger ? "show" : "hidden"}`}>
+                        <div className="MenuDiv ${}">
                             <h4>Oops I did it again</h4>
                             <h5>135kr</h5>
                             <p>Bröd, kött, ost, avokadoröra, rökig majo, tomat, gurka, krispsallad och lök</p>
