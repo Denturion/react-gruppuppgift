@@ -26,7 +26,6 @@ export function BookingCalendar() {
 
   function timeBooking(time: string) {
     setbookingTime(time);
-    console.log(time);
     setShowForm(true);
   };
 
