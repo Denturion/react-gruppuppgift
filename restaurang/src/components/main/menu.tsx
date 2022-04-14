@@ -85,9 +85,9 @@ export function Menu() {
                             <img className="burgerImg" src={womanizerBurger} />
                         </div>
                         <div className="MenuDiv">
-                            <h4>I'm Brittney Bitch (Vegetarisk)</h4>
+                            <h4>It's Britney Bitch (Vegetarisk)</h4>
                             <h5>120kr</h5>
-                            <p>Bröd, halloumi, chilimayo, soltorkade tomater, picklad lök,mixsallad, gurka och tomat.</p>
+                            <p>Bröd, halloumi, chilimayo, soltorkade tomater, picklad lök, mixsallad, gurka och tomat.</p>
                             <img className="burgerImg" src={brittneybitchBurger} />
                         </div>
                     </div>
