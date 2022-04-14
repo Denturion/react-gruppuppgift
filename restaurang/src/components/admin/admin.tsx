@@ -10,6 +10,12 @@ export interface ICustomerInfo {
   phone: string;
 }
 
+export interface ICustomerAndBooking {
+    bookingId: string;
+    customerId: string,
+    customerData: ICustomerInfo;
+}
+
 export function Admin() {
   const [bookingList, setBookingList] = useState<IBooking[]>([
     {
@@ -21,6 +27,20 @@ export function Admin() {
       customerId: "",
     },
   ]);
+
+  const [customerAndBooking, setCustomerAndBooking] = useState<ICustomerAndBooking[]>([
+      {
+      bookingId: "",
+      customerId: "",
+      customerData: {
+          id: "",
+          name: "",
+          lastname: "",
+          email: "",
+          phone: "",
+      },
+  },
+  ])
 
   const getBookings = () => {
     axios
@@ -41,6 +61,7 @@ export function Admin() {
 
   bookingList.forEach((element) => {
     let customerId = element.customerId;
+    if (customerId){
     axios
       .get<ICustomerInfo>(
         `https://school-restaurant-api.azurewebsites.net/customer/${customerId}`
@@ -48,7 +69,7 @@ export function Admin() {
       .then((response) => {
           customerList.push(response.data)
       });
-      
+    }
   });
 
   console.log(customerList);
