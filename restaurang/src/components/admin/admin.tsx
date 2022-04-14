@@ -40,6 +40,15 @@ export function Admin () {
        // })
    // });
 
+
+   //SKAPA USEEFFECT 
+   //Skapa lista för alla kunder 
+   //Mappa bookinglist 
+   //Gå igenom varje item i bookinglist och fetcha customerID info, 
+   //Pusha customer ID info till kundlistan 
+
+   //Skriv ut både bookinglist och kundlistan :)
+
     return(
         <div>
         <p>Admin works!</p>
