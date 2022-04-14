@@ -25,6 +25,7 @@
   .navigation-menu ul {
     display: flex;
     padding: 0;
+    z-index: 99;
   }
   
   .navigation-menu li {
