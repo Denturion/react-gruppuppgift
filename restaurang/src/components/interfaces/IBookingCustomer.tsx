@@ -1,7 +1,7 @@
 import { ICustomer } from "./ICustomer";
 
 export interface IBookingCustomer {
-    restautantID: string,
+    restaurantId: string,
     date: string,
     time: string,
     numberOfGuests: number,
