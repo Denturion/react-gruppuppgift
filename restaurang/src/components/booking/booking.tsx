@@ -4,7 +4,11 @@ import "./css/booking.css";
 
 
 export function Booking() {
-    return (<BookingCalendar></BookingCalendar>)
+    return (
+
+    <BookingCalendar></BookingCalendar>
+
+    )
 
 
 }

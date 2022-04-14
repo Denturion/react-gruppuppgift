@@ -4,6 +4,7 @@ export const CalendarContainer = styled.div`
   /* ~~~ container styles ~~~ */
   max-width: 600px;
   position: relative;
+  margin: auto;
   z-index: -1;
   margin-top: 20px;
   background-color: black;
