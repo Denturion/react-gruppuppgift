@@ -1,19 +1,20 @@
 .navigation {
-    position: relative;
+    position: fixed;
     display: flex;
     align-items: center;
     height: 60px;
     width: 100%;
     padding: 0.5rem 0rem;
     background-color: black;
-    color: pink;
+    color: #FFDADA;
     box-shadow: 0 2px 2px 2px rgba(9, 9, 9, 0.23);
   }
   
   .Logo {
     text-decoration: none;
-    color: pink;
+    color: #FFDADA;
     font-size: 2rem;
+    font-weight: bold;
     margin-left: 1.5rem;
   }
   
@@ -31,13 +32,14 @@
   .navigation-menu li {
     list-style-type: none;
     margin: 0 1rem;
+    font-weight: bold;
   }
   
   .Links {
     text-decoration: none;
     display: block;
     width: 100%;
-    color: pink;
+    color: #FFDADA;
     font-size: 1.5rem;
     
   }
@@ -48,7 +50,7 @@
     width: 40px;
     padding: 0.5rem;
     border-radius: 50%;
-    background-color: pink;
+    background-color: #FFDADA;
     cursor: pointer;
     transition: background-color 0.2s ease-in-out;
     position: absolute;
@@ -69,13 +71,13 @@
   
     .navigation-menu ul {
       flex-direction: column;
-      position: absolute;
+      position: fixed;
       top: 60px;
       left: 0;
       width: 100%;
       height: calc(100vh - 60px);
       background-color: rgb(0, 0, 0);
-      border-top: 1px solid pink;
+      border-top: 1px solid #FFDADA;
       display: none;
     }
   
@@ -85,7 +87,7 @@
     }
   
     .Links {
-      color: pink;
+      color: #FFDADA;
       width: 100%;
       padding: 2rem 0;
       font-size: 1.8rem;

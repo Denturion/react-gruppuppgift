@@ -1,7 +1,11 @@
+import "./css/notfound.css";
+
 export function NotFound() {
   return (
     <>
-      <div>404: Page Not Found</div>
+      <div>
+        <p className="NotFound">404: Page Not Found</p>
+      </div>
     </>
   );
 }
