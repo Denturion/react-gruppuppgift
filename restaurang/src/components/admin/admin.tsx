@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { IBooking } from "../interfaces/IBooking";
 
 export interface ICustomerInfo {
-  id: string;
+  _id: string;
   name: string;
   lastname: string;
   email: string;
@@ -11,9 +11,9 @@ export interface ICustomerInfo {
 }
 
 export interface ICustomerAndBooking {
-    bookingId: string;
-    customerId: string,
-    customerData: ICustomerInfo;
+  bookingId: string;
+  customerId: string;
+  customerData: ICustomerInfo;
 }
 
 export function Admin() {
@@ -28,19 +28,8 @@ export function Admin() {
     },
   ]);
 
-  const [customerAndBooking, setCustomerAndBooking] = useState<ICustomerAndBooking[]>([
-      {
-      bookingId: "",
-      customerId: "",
-      customerData: {
-          id: "",
-          name: "",
-          lastname: "",
-          email: "",
-          phone: "",
-      },
-  },
-  ])
+  //BHBADWBFEAFWEF
+  let customerAndBooking: ICustomerAndBooking[] = [];
 
   const getBookings = () => {
     axios
@@ -55,41 +44,55 @@ export function Admin() {
 
   useEffect(() => {
     getBookings();
+    getCustomerInfo();
   }, []);
 
-  let customerList : ICustomerInfo[] = []
+  //let customerList: ICustomerInfo[] = [];
 
-  bookingList.forEach((element) => {
-    let customerId = element.customerId;
-    if (customerId){
-    axios
-      .get<ICustomerInfo>(
-        `https://school-restaurant-api.azurewebsites.net/customer/${customerId}`
-      )
-      .then((response) => {
-          customerList.push(response.data)
-      });
-    }
-  });
+  function getCustomerInfo() {
+    bookingList.forEach((element) => {
+      let customerId = element.customerId;
+      if (customerId) {
+        axios
+          .get<ICustomerInfo>(
+            `https://school-restaurant-api.azurewebsites.net/customer/${customerId}`
+          )
+          .then((response) => {
+            let customerInfo = response.data;
+            let newCustomerAndBooking: ICustomerAndBooking = {
+              bookingId: element.id,
+              customerId: element.customerId,
+              customerData: customerInfo,
+              
+            };
+            //console.log("RESPONS ", response.data);fewgeq
+            
+            customerAndBooking.push(newCustomerAndBooking);
+            console.log(customerAndBooking);
+            
+          });
+      }
+    });
+  }
 
-  console.log(customerList);
+
+  console.log(customerAndBooking);
+
+  //console.log(customerAndBooking);
 
   //const [customerInfo, setCustomerInfo] = useState<ICustomerInfo>(
-    //{ id: "", name: "", lastname: "", email: "", phone: "" });
+  //{ id: "", name: "", lastname: "", email: "", phone: "" });
 
-    
-    //console.log(bookingList);
-    //console.log("Kundlista: ", customerList);
-
-    
+  //console.log(bookingList);
+  //console.log("Kundlista: ", customerList);
 
   //SKAPA USEEFFECT
   //Skapa lista för alla kunder X
   //Mappa bookinglist ?
   //Gå igenom varje item i bookinglist och fetcha customerID info, X
 
-  //Skapa en ny array 
-  
+  //Skapa en ny array
+
   //Pusha customer ID info till kundlistan)
 
   //Skriv ut både bookinglist och kundlistan :)
