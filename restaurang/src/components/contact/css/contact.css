@@ -1,1 +1,18 @@
-/* No CSS *//*# sourceMappingURL=contact.css.map */
+.Contact {
+  margin-top: 5rem;
+  color: #FFDADA;
+  text-align: center;
+}
+
+.Contact .Title {
+  font-size: 3rem;
+}
+
+.Contact p {
+  font-size: 1.5rem;
+}
+
+.Contact .Opentimes {
+  font-size: 2rem;
+}
+/*# sourceMappingURL=contact.css.map */
