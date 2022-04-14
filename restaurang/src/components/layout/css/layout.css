@@ -7,12 +7,13 @@
     padding: 0.5rem 0rem;
     background-color: black;
     color: #FFDADA;
+    
     box-shadow: 0 2px 2px 2px rgba(9, 9, 9, 0.23);
   }
   
   .Logo {
     text-decoration: none;
-    color: #FFDADA;
+    color: #fa9999;
     font-size: 2rem;
     font-weight: bold;
     margin-left: 1.5rem;
@@ -32,7 +33,7 @@
   .navigation-menu li {
     list-style-type: none;
     margin: 0 1rem;
-    font-weight: bold;
+    font-weight: 400;
   }
   
   .Links {

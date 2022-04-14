@@ -1,6 +1,7 @@
 import { Menu } from "./menu";
 import mainburger from "../../images/mainpageBurger.png";
 import { useNavigate } from "react-router-dom";
+import "./css/main.css";
 
 export function Main() {
   const navigate = useNavigate();
@@ -13,10 +14,14 @@ export function Main() {
   return (
     <>
       <div className="mainpage">
+        <div className="text">
         <h1>BRITNEY BURGERS</h1>
         <h2>Burgare, drinkar och karaoke</h2>
-        <img className="mainPageHamburger" src={mainburger} />
+        <div className="button">
         <button onClick={toBookingPage}>Boka bord</button>
+        </div>
+        </div>
+        <img className="mainPageHamburger" src={mainburger} />
       </div>
     </>
   );
