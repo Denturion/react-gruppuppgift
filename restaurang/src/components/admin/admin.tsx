@@ -1,20 +1,8 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { IBooking } from "../interfaces/IBooking";
-
-export interface ICustomerInfo {
-  _id: string;
-  name: string;
-  lastname: string;
-  email: string;
-  phone: string;
-}
-
-export interface ICustomerAndBooking {
-  bookingId: string;
-  customerId: string;
-  customerData: ICustomerInfo;
-}
+import { ICustomerAndBooking } from "../interfaces/ICustomerAndBooking";
+import { ICustomerInfo } from "../interfaces/ICustomerInfo";
 
 export function Admin() {
   const [bookingList, setBookingList] = useState<IBooking[]>([
