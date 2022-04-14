@@ -28,8 +28,14 @@ export function Admin() {
     },
   ]);
 
-  //BHBADWBFEAFWEF
-  let customerAndBooking: ICustomerAndBooking[] = [];
+  let customerAndBookingList: ICustomerAndBooking[] = [];
+  const [customerAndBooking, setCustomerAndBooking] = useState<ICustomerAndBooking[]>([
+      {
+        bookingId: "",
+        customerId: "",
+        customerData: {_id: "", name: "", lastname: "", email: "", phone: ""}
+      }
+  ])
 
   const getBookings = () => {
     axios
@@ -49,11 +55,7 @@ export function Admin() {
 
   useEffect(() => {
     getCustomerInfo();
-   
   }, [bookingList]);
-  
-
-  //let customerList: ICustomerInfo[] = [];bdsfbv
 
   function getCustomerInfo() {
     bookingList.map((element) => {
@@ -72,42 +74,29 @@ export function Admin() {
               customerData: customerInfo,
               
             };
-            //console.log("RESPONS ", response.data);fewgeq
             
-            customerAndBooking.push(newCustomerAndBooking);
-            console.log(customerAndBooking);
+            customerAndBookingList.push(newCustomerAndBooking);
+            setCustomerAndBooking(customerAndBookingList);
             
           });
         }
     });
   }
 
-
-  console.log(customerAndBooking);
-
-  //console.log(customerAndBooking);
-
-  //const [customerInfo, setCustomerInfo] = useState<ICustomerInfo>(
-  //{ id: "", name: "", lastname: "", email: "", phone: "" });
-
-  //console.log(bookingList);
-  //console.log("Kundlista: ", customerList);
-
-  //SKAPA USEEFFECT
-  //Skapa lista för alla kunder X
-  //Mappa bookinglist ?
-  //Gå igenom varje item i bookinglist och fetcha customerID info, X
-
-  //Skapa en ny array
-
-  //Pusha customer ID info till kundlistan)
-
-  //Skriv ut både bookinglist och kundlistan :)
+  let lis = customerAndBooking.map((data, i) => {
+    return (
+    <li key={i}>
+       {data.bookingId}
+        </li>);
+});
 
   return (
     <div>
       <p>Admin works!</p>
-      <p> {bookingList[0].date} </p>
+      <p>Booking Numbers:</p>
+      <ul>
+          {lis}
+      </ul>
     </div>
   );
 }
