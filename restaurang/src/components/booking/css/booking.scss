@@ -1,0 +1,21 @@
+body{
+    background-color: black;
+  }
+  p{
+    color: #FFB2B2;
+    font-size: 0.8rem;
+  }
+  .info{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 8px;
+    margin-right: 8px;
+  }
+  .times{
+    display: flex;
+    gap: 10px;
+  }
+  .dropDown{
+    display: flex;
+    gap: 10px;
+  }

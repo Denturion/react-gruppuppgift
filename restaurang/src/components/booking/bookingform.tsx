@@ -1,12 +1,14 @@
 import { ChangeEvent, FormEvent, FormEventHandler, useState } from "react"
 import { ICustomer } from "../interfaces/ICustomer";
-import { pushBooking } from "./pushbooking"
+import { NumberOfGuests } from "./numberOfGuests";
+import { postBooking } from "./postbooking"
 
 
 
-interface IBookingFormProps{
-    time:string,
-    myDate:string
+interface IBookingFormProps {
+    time: string,
+    myDate: string
+    guests: number;
     submitComplete(arg: boolean): void
 }
 export function BookingForm(props: IBookingFormProps) {
@@ -29,32 +31,31 @@ export function BookingForm(props: IBookingFormProps) {
         e.preventDefault();
 
         //PUSH BOOKING TO API
-        pushBooking(props.myDate, props.time, newUser);
+        postBooking(props.myDate, props.time, props.guests, newUser);
 
         //Submit Complete, show message in Parent
         props.submitComplete(true);
     }
 
-
     return (
         <>
-        <form onSubmit={handleSubmit}>
+            <form onSubmit={handleSubmit}>
 
-            <label htmlFor="name">Förnamn:</label>
-            <input id="name" type="text" name="name" value={newUser.name} onChange={handleChange} />
+                <label htmlFor="name">Förnamn:</label>
+                <input id="name" type="text" name="name" value={newUser.name} onChange={handleChange} />
 
-            <label htmlFor="lastname">Efternamn:</label>
-            <input id="lastname" type="text" name="lastname" value={newUser.lastname} onChange={handleChange} />
+                <label htmlFor="lastname">Efternamn:</label>
+                <input id="lastname" type="text" name="lastname" value={newUser.lastname} onChange={handleChange} />
 
-            <label htmlFor="email">E-post:</label>
-            <input id="email" type="email" name="email" value={newUser.email} onChange={handleChange} />
+                <label htmlFor="email">E-post:</label>
+                <input id="email" type="email" name="email" value={newUser.email} onChange={handleChange} />
 
-            <label htmlFor="phone">Telefonnummer:</label>
-            <input id="phone" type="text" name="phone" value={newUser.phone} onChange={handleChange} />
+                <label htmlFor="phone">Telefonnummer:</label>
+                <input id="phone" type="text" name="phone" value={newUser.phone} onChange={handleChange} />
 
 
-            <input type="submit" value="Submit" />
-        </form>
+                <input type="submit" value="Submit" />
+            </form>
         </>
     )
 

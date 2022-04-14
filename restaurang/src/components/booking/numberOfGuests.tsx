@@ -1,14 +1,13 @@
 import { useState } from "react";
-import { DropDownContainer, DropDownHeader, DropDownList, DropDownListContainer, ListItem } from "./mockups/stylecomponens/dropdown";
+import { DropDownContainer, DropDownHeader, DropDownList, DropDownListContainer, ListItem } from "./stylecomponens/dropdown";
 
-
-interface ITestProps{
+interface INumberOfGuestsProps{
     guests(arg: number): void
-}
+};
 
-export function NumberOfGuests (props:ITestProps){
+export function NumberOfGuests (props:INumberOfGuestsProps){
 
-    const options = [1, 2, 3, 4, 5, 6];
+    const options = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12];
 
     const [isOpen, setIsOpen] = useState(false);
     const [selectedOption, setSelectedOption] = useState(1);
@@ -22,11 +21,11 @@ export function NumberOfGuests (props:ITestProps){
     };
 
     return(
-        <>
-        <h1>Välj antal personer</h1>
+        <div className="dropDown">
+        <p>Välj antal personer:</p>
         <DropDownContainer>
         <DropDownHeader onClick={toggle}>
-          {selectedOption || 1}
+          {selectedOption}
         </DropDownHeader>
         {isOpen && (
           <DropDownListContainer>
@@ -40,6 +39,6 @@ export function NumberOfGuests (props:ITestProps){
           </DropDownListContainer>
         )}
       </DropDownContainer>
-      </>
+      </div>
         );
 }

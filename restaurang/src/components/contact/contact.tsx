@@ -1,13 +1,7 @@
 import axios from "axios"
 import { useEffect, useState } from "react";
+import { IRestaurant } from "../interfaces/IResturant";
 
-export interface IRestaurant {
-    _id: string,
-    name: string,
-    address: string,
-    zip: string,
-    city: string,
-}
 
 export function Contact () {
 

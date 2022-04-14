@@ -1,0 +1,89 @@
+.menu {
+  color: #FFDADA;
+}
+
+.menu .menuselect {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 8px;
+  position: fixed;
+}
+
+.menu .menuselect h3 {
+  cursor: pointer;
+  color: #FFB2B2;
+}
+
+.menu .menuselect .active {
+  text-decoration: underline;
+}
+
+.menu h4 {
+  font-size: 24px;
+  text-transform: uppercase;
+  width: 63%;
+}
+
+.menu h5 {
+  font-size: 20px;
+  color: #FFB2B2;
+  margin-top: -30px;
+}
+
+.menu p {
+  font-size: 16px;
+  width: 63%;
+  color: #FFDADA;
+}
+
+.menu .Burgers .MenuDiv {
+  width: 450px;
+  height: 200px;
+  margin: auto;
+  padding: 30px;
+}
+
+.menu .Burgers .MenuDiv .burgerImg {
+  width: 200px;
+  position: relative;
+  top: -200px;
+  left: 260px;
+}
+
+.menu .sides .MenuDiv {
+  width: 450px;
+  height: 100px;
+  margin: auto;
+  padding: 30px;
+}
+
+.menu .sides .MenuDiv .sidesImg {
+  width: 200px;
+  position: relative;
+  top: -190px;
+  left: 260px;
+}
+
+.menu .sides .MenuDiv:last-child {
+  height: 300px;
+}
+
+.menu .MenuDiv {
+  width: 450px;
+  height: 200px;
+  margin: auto;
+  padding: 30px;
+}
+
+.menu .MenuDiv img {
+  height: 180px;
+  position: relative;
+  top: -170px;
+  left: 260px;
+}
+
+.menu .MenuDiv p {
+  width: 60%;
+}
+/*# sourceMappingURL=menu.css.map */

@@ -11,7 +11,7 @@ import { Layout } from "./components/layout/layout";
 import { BookingCalendar } from "./components/booking/bookingcalendar";
 import { Booking } from "./components/booking/booking";
 import { Admin } from "./components/admin/admin";
-
+import { Menu } from "./components/main/menu";
 
 const container = document.getElementById("root");
 const root = ReactDOMClient.createRoot(container as Element);
@@ -21,8 +21,8 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<App />} />
-          <Route path="/main" element={<Main />} />
+          <Route index element={<Main />} />
+          <Route path="/menu" element={<Menu />} />
           <Route path="/booking" element={<Booking />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/admin" element={<Admin />} />
