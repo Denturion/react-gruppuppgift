@@ -19,7 +19,7 @@ export interface ICustomerAndBooking {
 export function Admin() {
   const [bookingList, setBookingList] = useState<IBooking[]>([
     {
-      id: "",
+      _id: "",
       restaurantId: "",
       date: "",
       time: "",
@@ -44,15 +44,22 @@ export function Admin() {
 
   useEffect(() => {
     getBookings();
-    getCustomerInfo();
+   
   }, []);
 
-  //let customerList: ICustomerInfo[] = [];
+  useEffect(() => {
+    getCustomerInfo();
+   
+  }, [bookingList]);
+  
+
+  //let customerList: ICustomerInfo[] = [];bdsfbv
 
   function getCustomerInfo() {
-    bookingList.forEach((element) => {
-      let customerId = element.customerId;
-      if (customerId) {
+    bookingList.map((element) => {
+        let customerId = element.customerId;
+        if(customerId) {
+  
         axios
           .get<ICustomerInfo>(
             `https://school-restaurant-api.azurewebsites.net/customer/${customerId}`
@@ -60,7 +67,7 @@ export function Admin() {
           .then((response) => {
             let customerInfo = response.data;
             let newCustomerAndBooking: ICustomerAndBooking = {
-              bookingId: element.id,
+              bookingId: element._id,
               customerId: element.customerId,
               customerData: customerInfo,
               
@@ -71,7 +78,7 @@ export function Admin() {
             console.log(customerAndBooking);
             
           });
-      }
+        }
     });
   }
 
