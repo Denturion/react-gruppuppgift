@@ -25,8 +25,10 @@ export function Admin() {
       }
   ])
 
-  const getBookings = () => {
-    axios
+  useEffect(() => {
+    if(bookingList.length > 1) return;
+    else{
+        axios
       .get<IBooking[]>(
         "https://school-restaurant-api.azurewebsites.net/booking/restaurant/624ff35c138a40561e115f1e"
       )
@@ -34,42 +36,37 @@ export function Admin() {
         const apiBookings = response.data;
         setBookingList(apiBookings);
       });
-  };
-
-  useEffect(() => {
-    getBookings();
-   
+    }
   }, []);
 
+  
+
   useEffect(() => {
-    getCustomerInfo();
+    bookingList.map((element) => {
+      let customerId = element.customerId;
+      if(customerId) {
+
+      axios
+        .get(
+          `https://school-restaurant-api.azurewebsites.net/customer/${customerId}`
+        )
+        .then((response) => {
+          let customerInfo = response.data[0];
+          let newCustomerAndBooking: ICustomerAndBooking = {
+            bookingId: element._id,
+            customerId: element.customerId,
+            customerData: customerInfo,
+            
+          };
+          
+          customerAndBookingList.push(newCustomerAndBooking);
+          setCustomerAndBooking(customerAndBookingList);
+          
+        });
+      }
+  });
   }, [bookingList]);
 
-  function getCustomerInfo() {
-    bookingList.map((element) => {
-        let customerId = element.customerId;
-        if(customerId) {
-  
-        axios
-          .get<ICustomerInfo>(
-            `https://school-restaurant-api.azurewebsites.net/customer/${customerId}`
-          )
-          .then((response) => {
-            let customerInfo = response.data;
-            let newCustomerAndBooking: ICustomerAndBooking = {
-              bookingId: element._id,
-              customerId: element.customerId,
-              customerData: customerInfo,
-              
-            };
-            
-            customerAndBookingList.push(newCustomerAndBooking);
-            setCustomerAndBooking(customerAndBookingList);
-            
-          });
-        }
-    });
-  }
 
   let lis = customerAndBooking.map((data, i) => {
     return (
@@ -77,6 +74,9 @@ export function Admin() {
        {data.bookingId}
         </li>);
 });
+
+console.log(bookingList)
+
 
   return (
     <div>
