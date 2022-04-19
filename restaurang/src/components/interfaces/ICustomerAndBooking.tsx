@@ -1,7 +1,7 @@
+import { IBooking } from "./IBooking";
 import { ICustomerInfo } from "./ICustomerInfo";
 
 export interface ICustomerAndBooking {
-    bookingId: string;
-    customerId: string;
+    booking: IBooking
     customerData: ICustomerInfo;
   }
