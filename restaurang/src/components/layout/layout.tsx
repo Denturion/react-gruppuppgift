@@ -1,4 +1,4 @@
-import { Router, Route, Link, Outlet } from "react-router-dom";
+import { Router, Route, NavLink, Outlet } from "react-router-dom";
 import "./css/layout.css";
 import { useEffect, useState } from "react";
 
@@ -9,9 +9,9 @@ export function Layout() {
   return (
     <>
       <nav className="navigation">
-        <Link to="/" className="Logo">
+        <NavLink to="/" className="Logo">
           Britney Burgers
-        </Link>
+        </NavLink>
 
         <button
           className="burger"
@@ -28,29 +28,42 @@ export function Layout() {
         >
           <ul>
             <li>
-              <Link to="/menu" className="Links" onClick={toggle}>
+              <NavLink
+                to="/menu"
+                className={({ isActive }) =>
+                  isActive ? "link-active" : "link"
+                }
+                onClick={toggle}
+              >
                 Meny
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/booking" className="Links" onClick={toggle}>
+              <NavLink
+                to="/booking"
+                className={({ isActive }) =>
+                  isActive ? "link-active" : "link"
+                }
+                onClick={toggle}
+              >
                 Boka
-              </Link>
+              </NavLink>
             </li>
             <li>
-              <Link to="/contact" className="Links" onClick={toggle}>
+              <NavLink
+                to="/contact"
+                className={({ isActive }) =>
+                  isActive ? "link-active" : "link"
+                }
+                onClick={toggle}
+              >
                 Kontakt
-              </Link>
-            </li>
-            <li>
-              <Link to="/admin" className="Links" onClick={toggle}>
-                Admin
-              </Link>
+              </NavLink>
             </li>
           </ul>
         </div>
       </nav>
-      
+
       <main>
         <Outlet></Outlet>
       </main>

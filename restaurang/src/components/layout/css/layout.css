@@ -36,14 +36,23 @@
     font-weight: 400;
   }
   
-  .Links {
+  .link {
     text-decoration: none;
     display: block;
     width: 100%;
     color: #FFDADA;
-    font-size: 1.5rem;
-    
+    font-size: 1.5rem;    
   }
+
+  .link-active {
+    text-decoration: underline;
+    display: block;
+    width: 100%;
+    color: #FFDADA;
+    font-size: 1.5rem;  
+
+  }
+  
   
   .burger {
     border: 0;
