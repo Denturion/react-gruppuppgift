@@ -7,9 +7,8 @@ import { ICustomerInfo } from "../interfaces/ICustomerInfo";
 
 export function Admin2() {
 
-    const [customerList, setCustomerList] = useState<ICustomerInfo[]>([]);
-    const [customerAndBooking, setCustomerAndBooking] = useState<ICustomerAndBooking[]>([])
-    const [bookings, setBookings] = useState<IBooking[]>([]);
+    const [customerAndBooking, setCustomerAndBooking] = useState<ICustomerAndBooking[]>([]);
+    const [show, setShow] = useState(9999);
 
     useEffect(() => {
         axios.get<IBooking[]>("https://school-restaurant-api.azurewebsites.net/booking/restaurant/624ff35c138a40561e115f1e")
@@ -31,25 +30,57 @@ export function Admin2() {
             });
     }, []);
 
-    function updateBooking(idToUpdate:string, index:number){
-        let array = [...customerAndBooking]; 
+
+    //UPPDATE BOOKING TAR DIG HIT
+    function showForm(info:ICustomerAndBooking, index: number) {
+        return (
+            <div>
+                <p>{customerAndBooking[index].booking._id}</p>
+                <p>HEEEEEJ</p>
+                <button onClick={() => { handleSubmit(index) }}> Handle Submit</button>
+            </div>
+            //HANDLE SUBMIT TAR DIG TILL FUNTION HANDLESYBMIT SKICKA MED INDEX!!
+        )
+    }
+
+    function handleSubmit(index:number){
+        let array = [...customerAndBooking];
 
         array[index] = {
-            booking:{_id:array[index].booking._id, restaurantId:"624ff35c138a40561e115f1e", date:"", time:"", numberOfGuests:1, 
-            customerId:array[index].booking.customerId}, customerData:{_id:array[index].customerData._id, name:"", lastname:"", email:"", phone:""}
+            booking: {
+                _id: array[index].booking._id,
+                restaurantId: "624ff35c138a40561e115f1e",
+                date: "20/05-2022",
+                time: "18:00",
+                numberOfGuests: 1,
+                customerId: array[index].booking.customerId
+            },
+            customerData: {
+                _id: array[index].customerData._id,
+                name: "reb",
+                lastname: "lar",
+                email: "hej",
+                phone: "06006"
+            }
         };
 
-        console.log(array[index].booking)
+        setCustomerAndBooking(array);
 
-        axios.put(`https://school-restaurant-api.azurewebsites.net/booking/update/${idToUpdate}`, array[index].booking);
-        axios.put(`https://school-restaurant-api.azurewebsites.net/customer/update/${idToUpdate}`, array[index].customerData);
-
+        axios.put(`https://school-restaurant-api.azurewebsites.net/booking/update/${customerAndBooking[index].booking._id}`, customerAndBooking[index].booking);
+        axios.put(`https://school-restaurant-api.azurewebsites.net/customer/update/${customerAndBooking[index].customerData._id}`, customerAndBooking[index].customerData);
     }
-    function deleteBooking(idToDelete:string, index:number){
-        let array = [...customerAndBooking]; 
+
+
+    function updateBooking(idToUpdate: string, index: number) {
+        setShow(index);
+    };
+
+
+    function deleteBooking(idToDelete: string, index: number) {
+        let array = [...customerAndBooking];
         array.splice(index, 1);
         setCustomerAndBooking(array);
-        axios.delete(`https://school-restaurant-api.azurewebsites.net/booking/delete${idToDelete}`);
+        axios.delete(`https://school-restaurant-api.azurewebsites.net/booking/delete/${idToDelete}`);
     }
 
     let lis = customerAndBooking.map((data, i) => {
@@ -57,15 +88,18 @@ export function Admin2() {
             <div key={i}>
                 <p>{data.booking._id}</p>
                 <p>{data.customerData.name}</p>
-                <button onClick={()=>{deleteBooking(data.booking._id, i)}}>Delete</button>
-                <button onClick={()=>{updateBooking(data.booking._id, i)}}>Uppdatera Bokning</button>
+                <button onClick={() => { deleteBooking(data.booking._id, i) }}>Delete</button>
+                <button onClick={() => { updateBooking(data.booking._id, i) }}>Uppdatera Bokning</button>
+                {(show === i) && showForm(data, i)}
             </div>
         )
     });
 
     return (
-        <div>
-            {lis}
-        </div>
+        <>
+            <div>
+                {lis}
+            </div>
+        </>
     );
 }
