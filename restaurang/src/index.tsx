@@ -5,14 +5,12 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import { Main } from "./components/main/main";
 import { Contact } from "./components/contact/contact";
-import App from "./App";
 import { NotFound } from "./components/notfound/notfound";
 import { Layout } from "./components/layout/layout";
-import { BookingCalendar } from "./components/booking/bookingcalendar";
 import { Booking } from "./components/booking/booking";
 
 import { Menu } from "./components/main/menu";
-import { Admin } from "./components/admin/admin2";
+import { Admin } from "./components/admin/admin";
 
 
 const container = document.getElementById("root");
