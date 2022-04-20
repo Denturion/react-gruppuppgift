@@ -27,7 +27,7 @@ root.render(
           <Route path="/menu" element={<Menu />} />
           <Route path="/booking" element={<Booking />} />
           <Route path="/contact" element={<Contact />} />
-          <Route path="/admin" element={<Admin2 />} />
+          <Route path="/admin" element={<Admin />} />
           <Route path="*" element={<NotFound />} />
         </Route>
       </Routes>
