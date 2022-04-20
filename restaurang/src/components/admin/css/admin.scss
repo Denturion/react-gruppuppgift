@@ -1,19 +1,20 @@
-.newbooking{
-    width:98vw;
+.newbooking {
+    width: 98vw;
     display: flex;
     justify-content: center;
-    button{
+    button {
         font-size: 1.2rem;
     }
 }
-h1, h2{
+h1,
+h2 {
     color: #fa9999;
 }
-p{
-    color:white;
+p {
+    color: white;
 }
 
-.CustomerData{
+.CustomerData {
     display: flex;
     gap: 40px;
     flex-wrap: wrap;
@@ -21,9 +22,9 @@ p{
     width: 98vw;
     margin-bottom: 30px;
     margin: auto;
-    div{
+    div {
         width: 30%;
-        form{
+        form {
             position: relative;
             margin-left: 0;
             width: 100%;
@@ -31,15 +32,14 @@ p{
             border-radius: 2px;
             padding: 20px;
             margin-bottom: 30px;
-            span{
-                margin:0;
+            span {
+                margin: 0;
                 font-size: 0.8rem;
-                color: #FFB2B2;
+                color: #ffb2b2;
             }
-            p{
-                color:#fbc9c9;
+            p {
+                color: #fbc9c9;
             }
-
         }
     }
 }
@@ -53,13 +53,23 @@ button {
     text-transform: uppercase;
 
     &:hover {
-      background-color: #fa9999;
+        background-color: #fa9999;
     }
 
     &:active {
-      background-color: #fbc9c9;
+        background-color: #fbc9c9;
     }
     &:disabled {
-      opacity: 0.5;
+        opacity: 0.5;
     }
-  }
+}
+
+@media screen and (max-width: 768px) {
+    .CustomerData {
+        width: 90vw;
+
+        div {
+            width: 90%;
+        }
+    }
+}

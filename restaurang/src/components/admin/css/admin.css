@@ -12,7 +12,8 @@
   font-size: 1.2rem;
 }
 
-h1, h2 {
+h1,
+h2 {
   color: #fa9999;
 }
 
@@ -52,7 +53,7 @@ p {
 .CustomerData div form span {
   margin: 0;
   font-size: 0.8rem;
-  color: #FFB2B2;
+  color: #ffb2b2;
 }
 
 .CustomerData div form p {
@@ -79,5 +80,14 @@ button:active {
 
 button:disabled {
   opacity: 0.5;
+}
+
+@media screen and (max-width: 768px) {
+  .CustomerData {
+    width: 90vw;
+  }
+  .CustomerData div {
+    width: 90%;
+  }
 }
 /*# sourceMappingURL=admin.css.map */
