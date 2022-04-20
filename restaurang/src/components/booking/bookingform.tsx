@@ -74,7 +74,13 @@ export function BookingForm(props: IBookingFormProps) {
         <input
           id="email"
           type="email"
-          {...register("email", { required: "Mailadress krävs" })}
+          {...register("email", {
+            required: "Mailadress krävs",
+            pattern: {
+              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+              message: "Ogiltig e-postadress",
+            },
+          })}
           value={newUser.email}
           onChange={handleChange}
         />
@@ -83,7 +89,13 @@ export function BookingForm(props: IBookingFormProps) {
         <input
           id="phone"
           type="text"
-          {...register("phone", { required: "Telefonnummer krävs" })}
+          {...register("phone", {
+            required: "Telefonnummer krävs",
+            pattern: {
+              value: /^[0-9]+$/i,
+              message: "Endast siffror",
+            },
+          })}
           value={newUser.phone}
           onChange={handleChange}
         />
