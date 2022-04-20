@@ -14,6 +14,7 @@ export function Admin() {
 
     //CONST FOR HTML WHAT SHOWS WHEN
     const [show, setShow] = useState(9999999999999);
+    const [customer, setCustomer] = useState(9999999999999);
     const [showBooking, setShowBooking] = useState(false);
     const [submitCompleted, setSubmitCompleted] = useState(false);
 
@@ -69,6 +70,21 @@ export function Admin() {
         }
     };
 
+    // BUTTON TO SHOW MORE CUSTOMER INFO JUST CHANGING HTML
+    function showCustomerInfo(index: number) {
+
+        if (customer === index) {
+            setCustomer(9999999999999)
+        }
+        else {
+            setCustomer(index);
+        }
+
+        if(show === index){
+            setShow(9999999999999)
+        }
+    };
+
 
     //DELETE BOOKING FROM BOTH OUR CUSTOMERANDBOOKING LIST AND API
     function deleteBooking(idToDelete: string, index: number) {
@@ -89,7 +105,7 @@ export function Admin() {
         setShowBooking(!showBooking)
     }
 
-    
+
     ////////
     //HTML//
     ///////
@@ -98,7 +114,7 @@ export function Admin() {
     function useshowForm(info: ICustomerAndBooking, index: number) {
 
         console.log(info);
-        
+
         return (
             <div>
                 <form onSubmit={handleSubmit((data) => {
@@ -204,19 +220,24 @@ export function Admin() {
                 <h1>{data.customerData.name} {data.customerData.lastname}</h1>
                 <p>Bokningsid: {data.booking._id}</p>
                 <p>Kundid: {data.customerData._id}</p>
+                <button onClick={() => { showCustomerInfo(i) }}>Se mer information</button>
 
-                <h2>Kundinformation</h2>
-                <p>Namn: {data.customerData.name} {data.customerData.lastname}</p>
-                <p>E-post: {data.customerData.email}</p>
-                <p>Telefonnummer: {data.customerData.phone}</p>
+                {(customer === i) &&
+                    <>
+                        <h2>Kundinformation</h2>
+                        <p>Namn: {data.customerData.name} {data.customerData.lastname}</p>
+                        <p>E-post: {data.customerData.email}</p>
+                        <p>Telefonnummer: {data.customerData.phone}</p>
 
-                <h2>Bokningsinformation</h2>
-                <p>Datum: {data.booking.date}</p>
-                <p>Tid: {data.booking.time}</p>
-                <p>Antal gäster: {data.booking.numberOfGuests.toString()}</p>
+                        <h2>Bokningsinformation</h2>
+                        <p>Datum: {data.booking.date}</p>
+                        <p>Tid: {data.booking.time}</p>
+                        <p>Antal gäster: {data.booking.numberOfGuests.toString()}</p>
 
-                <button onClick={() => { deleteBooking(data.booking._id, i) }}>Ta bort</button>
-                <button onClick={() => { updateBooking(i) }}>Uppdatera</button>
+                        <button onClick={() => { deleteBooking(data.booking._id, i) }}>Ta bort</button>
+                        <button onClick={() => { updateBooking(i) }}>Uppdatera</button>
+                    </>
+                }
                 {(show === i) && useshowForm(data, i)}
             </div>
         )
