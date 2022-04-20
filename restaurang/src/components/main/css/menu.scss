@@ -3,8 +3,9 @@
 
     .menuselect{
         display: flex;
-        gap: 8px;
+        gap: 0.5rem;
         position: fixed;
+        margin-left: 2rem;
         h3{
             cursor: pointer;
             color: #FFB2B2;
@@ -14,64 +15,64 @@
         }
     }
     h4{
-        font-size: 24px;
+        font-size: 1.5rem;
         text-transform: uppercase;
         width: 63%;
     }
     h5{
-        font-size: 20px;
+        font-size: 1.25rem;
         color: #FFB2B2;
-        margin-top: -30px;
+        margin-top: -1.85rem;
     }
     p{
-        font-size: 16px;
+        font-size: 1rem;
         width: 63%;
         color:#FFDADA;
     }
  
     .Burgers{
         .MenuDiv{
-            width: 450px;
-            height: 200px;
+            width: 28rem;
+            height: 12.5;
             margin: auto;
-            padding: 30px;
+            padding: 1.9rem;
             .burgerImg{
-                width: 200px;
+                width: 12.5rem;
                 position: relative;
-                top: -200px;
-                left: 260px;
+                top: -12.5rem;
+                left: 16rem;
                 z-index: -1;
             }
         }
     }
     .sides{
         .MenuDiv{
-            width: 450px;
-            height: 100px;
+            width: 28rem;
+            height: 6.25rem;
             margin: auto;
-            padding: 30px;
+            padding: 1.9rem;
             .sidesImg{
-                width: 200px;
+                width: 12.5rem;
                 position: relative;
-                top: -190px;
-                left: 260px;
+                top: -10.5rem;
+                left: 16rem;
                 z-index: -1;
             }
             &:last-child{
-                height: 300px;
+                height: 19rem;
             }
         }
     }
     .MenuDiv{
-        width: 450px;
-        height: 200px;
+        width: 28rem;
+        height: 12.5rem;
         margin: auto;
-        padding: 30px;
+        padding: 1.9rem;
         img{
-            height: 180px;
+            height: 11rem;
             position: relative;
-            top: -170px;
-            left: 260px;
+            top: -10.5rem;
+            left: 16.5rem;
             z-index: -1;
         }
         p{
