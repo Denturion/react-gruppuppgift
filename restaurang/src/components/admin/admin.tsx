@@ -86,7 +86,7 @@ export function Admin() {
 
     //SHOW BOOKING COMPONENT TO CREATE BOOKING FROM ADMIN
     function newBooking() {
-        setShowBooking(true)
+        setShowBooking(!showBooking)
     }
 
     
