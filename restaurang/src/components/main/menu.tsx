@@ -23,6 +23,7 @@ export function Menu() {
     const [drink, setDrink] = useState(false);
 
 
+    //FUNCTIONS TO DECIDE WHAT SHOWS DEPENDING ON BUTTON PRESSED
     function Burger() {
         setBurger(true);
         setSides(false);
@@ -39,7 +40,7 @@ export function Menu() {
         setDrink(true);
     }
 
-    //Vi har lagt in cataleya, cheeseburgare, pippi, dimegirl
+    //MENU HTML, IN MENU SELECT: ACTIVE CLASS IF CONST IS TRUE, ALL IMAGES ARE IMPORTED ABOVE
     return (
         <>
 
@@ -59,7 +60,7 @@ export function Menu() {
                         Dryck</h3>
                 </div>
                 {burger &&
-                    <div className="Burgers" id={`${burger ? "show" : "hidden"}`}>
+                    <div className="Burgers">
                         <div className="MenuDiv ${}">
                             <h4>Oops I did it again</h4>
                             <h5>135kr</h5>

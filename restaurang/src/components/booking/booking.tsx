@@ -9,9 +9,7 @@ export function Booking() {
     function submitComplete() {
       }
     return (
-
     <BookingCalendar submitComplete={submitComplete}></BookingCalendar>
-
     )
 
 

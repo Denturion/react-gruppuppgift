@@ -3,6 +3,8 @@ import { IBooking } from "../interfaces/IBooking";
 import { ICustomerAndBooking } from "../interfaces/ICustomerAndBooking";
 
 export function putSubmits(array:ICustomerAndBooking[], data:any, index:number){
+
+    //CREATING THE NEW ARRAY WITH INFORMATION FROM FORM
     array[index] = {
         booking: {
             _id: array[index].booking._id,
@@ -20,6 +22,8 @@ export function putSubmits(array:ICustomerAndBooking[], data:any, index:number){
             phone: data.phone,
         }
     };
+
+    //CREATING WHAT TO PUT FROM NEW ARRAY
     let updatedBookingToPutToAPI = {
         id: array[index].booking._id,
         restaurantId: array[index].booking.restaurantId,
@@ -36,6 +40,7 @@ export function putSubmits(array:ICustomerAndBooking[], data:any, index:number){
         phone: array[index].customerData.phone
     }
 
+    //PUT IN API TO CHANGE BOOKING IN API
     axios.put<IBooking>("https://school-restaurant-api.azurewebsites.net/booking/update/" + updatedBookingToPutToAPI.id, updatedBookingToPutToAPI, { headers: { "content-type": "application/json" } })
         .then(response => {
             console.log(response);
@@ -45,6 +50,7 @@ export function putSubmits(array:ICustomerAndBooking[], data:any, index:number){
             console.log(response);
         })
 
+        //RETURNING THE ARRAY TO ADMIN COMPONENT
         return(array);
 
 }

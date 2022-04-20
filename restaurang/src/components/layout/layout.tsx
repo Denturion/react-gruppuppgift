@@ -6,6 +6,7 @@ export function Layout() {
   const [isNavExpanded, setIsNavExpanded] = useState(false);
   const toggle = () => setIsNavExpanded(!isNavExpanded);
 
+  //LAYOUT WITH HAMBURGERMENU
   return (
     <>
       <nav className="navigation">

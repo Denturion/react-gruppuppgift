@@ -1,6 +1,8 @@
 import axios, { Axios } from "axios"
 import { useEffect } from "react"
 
+
+//ONLY USED TO CREATE RESTURANT IN BEGINING
 interface ICreateRestaurant {
     name: string,
     address: {
