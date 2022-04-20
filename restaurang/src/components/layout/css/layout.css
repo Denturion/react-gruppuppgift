@@ -94,13 +94,23 @@
     .navigation-menu li {
       text-align: center;
       margin: 0;
+      margin-top: 2rem;
     }
   
-    .Links {
+    .link {
       color: #FFDADA;
       width: 100%;
       padding: 2rem 0;
-      font-size: 1.8rem;
+      font-size: 3rem;
+    }
+
+    .link-active {
+      color: #FFDADA;
+      width: 100%;
+      padding: 2rem 0;
+      font-size: 3rem; 
+      text-decoration: none;
+  
     }
   
     .navigation-menu li:hover {
