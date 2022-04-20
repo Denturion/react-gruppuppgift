@@ -20,6 +20,7 @@ export function BookingForm(props: IBookingFormProps) {
         phone: ""
     });
 
+
     function handleChange(e: ChangeEvent<HTMLInputElement>) {
         let name = e.target.name;
 
