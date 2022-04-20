@@ -10,11 +10,11 @@ import { ICustomerAndBooking } from "../interfaces/ICustomerAndBooking";
 export function Admin() {
 
     const [customerAndBooking, setCustomerAndBooking] = useState<ICustomerAndBooking[]>([]);
-    const [show, setShow] = useState(9999);
+    const [show, setShow] = useState(9999999999999);
     const [showBooking, setShowBooking] = useState(false);
     const [submitCompleted, setSubmitCompleted] = useState(false);
 
-    const { register, handleSubmit, watch, formState: { errors } } = useForm();
+    const { register, handleSubmit, formState: { errors } } = useForm();
 
     useEffect(() => {
         getBookingAndCustomers();
@@ -47,16 +47,46 @@ export function Admin() {
     function useshowForm(info: ICustomerAndBooking, index: number) {
         return (
             <div>
-                <form onSubmit={handleSubmit((data)=>{
+                <form onSubmit={handleSubmit((data) => {
                     handleSubmits(data, index);
                 })}>
 
                     <label htmlFor="firstName">Förnamn:</label>
-                    <input id="firstName" type="text"{...register("firstName", {required: "Du måste skriva här", minLength:{value:2, message:"Måste vara 3 bokstäver"}})} defaultValue={info.customerData.name} />
-
-                    <label htmlFor="date">Förnamn:</label>
-                    <input id="date" type="text"{...register("date", {required: "Du måste skriva här", minLength:{value:2, message:"Måste vara 3 bokstäver"}})} defaultValue={info.booking.date} />
+                    <input id="firstName" type="text"{...register("firstName", { required: "Du måste skriva här", minLength: { value: 2, message: "Måste vara minst 2 bokstäver" } })} defaultValue={info.customerData.name} />
                     <p>{errors.firstName?.message}</p>
+
+                    <label htmlFor="lastName">Efternamn:</label>
+                    <input id="lastName" type="text"{...register("lastName", { required: "Du måste skriva här", minLength: { value: 2, message: "Måste vara minst 2 bokstäver" } })} defaultValue={info.customerData.lastname} />
+                    <p>{errors.firstName?.message}</p>
+
+                    <label htmlFor="email">E-post:</label>
+                    <input id="email" type="email"{...register("email", {
+                        required: "Du måste skriva här", pattern: {
+                            value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+                            message: "Ogiltig epost adress"
+                        }, minLength: { value: 2, message: "Måste vara 3 bokstäver" }
+                    })} defaultValue={info.customerData.email} />
+                    <p>{errors.email?.message}</p>
+
+                    <label htmlFor="phone">Telefonnummer:</label>
+                    <input id="phone" type="text"{...register("phone", { required: "Du måste skriva här", pattern: { value: /^[0-9]+$/i, message: "Endast siffror" } })} defaultValue={info.customerData.phone} />
+                    <p>{errors.phone?.message}</p>
+
+                    <label htmlFor="date">Datum:</label>
+                    <p>Tänk på att dubbelkolla så att det finns bord innan du byter datum</p>
+                    <input id="date" type="text"{...register("date", { required: "Du måste skriva här", pattern: { value: /^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/, message: "Formatet för datumet måste vara yyyy-mm-dd" } })} defaultValue={info.booking.date} />
+                    <p>{errors.date?.message}</p>
+
+                    <label htmlFor="time">Tid:</label>
+                    <p>Tänk på att dubbelkolla så att det finns bord innan du byter tid</p>
+                    <select id="time" {...register("time")}>
+                        <option value="18.00">18.00</option>
+                        <option value="21-00">21.00</option>
+                    </select>
+
+                    <label htmlFor="guest">Antal Gäster:</label>
+                    <input id="guest" type="number"{...register("guest")} defaultValue={info.booking.numberOfGuests} />
+
                     <input type="submit"></input>
                 </form>
             </div>
@@ -64,24 +94,25 @@ export function Admin() {
     }
 
 
-    function handleSubmits(data:any, index: number) {
+    function handleSubmits(data: any, index: number) {
+        setShow(9999999999999);
         let array = [...customerAndBooking];
 
         array[index] = {
             booking: {
                 _id: array[index].booking._id,
                 restaurantId: "624ff35c138a40561e115f1e",
-                date: "20/05-2022",
-                time: "18:00",
-                numberOfGuests: 1,
+                date: data.date,
+                time: data.time,
+                numberOfGuests: data.guest,
                 customerId: array[index].booking.customerId
             },
             customerData: {
                 _id: array[index].customerData._id,
                 name: data.firstName,
-                lastname: "lar",
-                email: "hej",
-                phone: "06006"
+                lastname: data.lastName,
+                email: data.email,
+                phone: data.phone,
             }
         };
         let updatedBookingToPutToAPI = {
@@ -114,7 +145,12 @@ export function Admin() {
 
 
     function updateBooking(index: number) {
-        setShow(index);
+        if (show === index){
+            setShow(9999999999999)
+        }
+        else{
+            setShow(index);
+        }
     };
 
 
