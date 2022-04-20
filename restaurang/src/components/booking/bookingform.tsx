@@ -1,63 +1,107 @@
-import { ChangeEvent, FormEvent, FormEventHandler, useState } from "react"
+import { ChangeEvent, FormEvent, FormEventHandler, useState } from "react";
 import { ICustomer } from "../interfaces/ICustomer";
 import { NumberOfGuests } from "./numberOfGuests";
-import { postBooking } from "./postbooking"
-
-
+import { postBooking } from "./postbooking";
+import { useForm } from "react-hook-form";
 
 interface IBookingFormProps {
-    time: string,
-    myDate: string
-    guests: number;
-    submitComplete(arg: boolean): void
+  time: string;
+  myDate: string;
+  guests: number;
+  submitComplete(arg: boolean): void;
 }
 export function BookingForm(props: IBookingFormProps) {
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      name: "",
+      lastname: "",
+      email: "",
+      phone: "",
+    },
+  });
 
-    const [newUser, setNewUser] = useState<ICustomer>({
-        name: "",
-        lastname: "",
-        email: "",
-        phone: ""
-    });
+  const [newUser, setNewUser] = useState<ICustomer>({
+    name: "",
+    lastname: "",
+    email: "",
+    phone: "",
+  });
 
+  function handleChange(e: ChangeEvent<HTMLInputElement>) {
+    let name = e.target.name;
 
-    function handleChange(e: ChangeEvent<HTMLInputElement>) {
-        let name = e.target.name;
+    setNewUser({ ...newUser, [name]: e.target.value });
+  }
 
-        setNewUser({ ...newUser, [name]: e.target.value });
+  function handleSubmits() {
+    //PUSH BOOKING TO API
+    postBooking(props.myDate, props.time, props.guests, newUser);
 
-    };
+    //Submit Complete, show message in Parent
+    props.submitComplete(true);
+  }
 
-    function handleSubmit(e: FormEvent<HTMLFormElement>) {
-        e.preventDefault();
-
-        //PUSH BOOKING TO API
-        postBooking(props.myDate, props.time, props.guests, newUser);
-
-        //Submit Complete, show message in Parent
-        props.submitComplete(true);
-    }
-
-    return (
-        <>
-            <form onSubmit={handleSubmit}>
-
-                <label htmlFor="name">Förnamn:</label>
-                <input id="name" type="text" name="name" value={newUser.name} onChange={handleChange} />
-
-                <label htmlFor="lastname">Efternamn:</label>
-                <input id="lastname" type="text" name="lastname" value={newUser.lastname} onChange={handleChange} />
-
-                <label htmlFor="email">E-post:</label>
-                <input id="email" type="email" name="email" value={newUser.email} onChange={handleChange} />
-
-                <label htmlFor="phone">Telefonnummer:</label>
-                <input id="phone" type="text" name="phone" value={newUser.phone} onChange={handleChange} />
-
-
-                <input type="submit" value="Submit" />
-            </form>
-        </>
-    )
-
+  return (
+    <>
+      <form
+        onSubmit={handleSubmit((data) => {
+          handleSubmits();
+        })}
+      >
+        <label htmlFor="name">Förnamn:</label>
+        <input
+          id="name"
+          type="text"
+          {...register("name", { required: "Förnamn krävs" })}
+          value={newUser.name}
+          onChange={handleChange}
+        />
+        <p>{errors.name?.message}</p>
+        <label htmlFor="lastname">Efternamn:</label>
+        <input
+          id="lastname"
+          type="text"
+          {...register("lastname", { required: "Efternamn krävs" })}
+          value={newUser.lastname}
+          onChange={handleChange}
+        />
+        <p>{errors.lastname?.message}</p>
+        <label htmlFor="email">E-post:</label>
+        <input
+          id="email"
+          type="email"
+          {...register("email", {
+            required: "Mailadress krävs",
+            pattern: {
+              value: /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i,
+              message: "Ogiltig e-postadress",
+            },
+          })}
+          value={newUser.email}
+          onChange={handleChange}
+        />
+        <p>{errors.email?.message}</p>
+        <label htmlFor="phone">Telefonnummer:</label>
+        <input
+          id="phone"
+          type="text"
+          {...register("phone", {
+            required: "Telefonnummer krävs",
+            pattern: {
+              value: /^[0-9]+$/i,
+              message: "Endast siffror",
+            },
+          })}
+          value={newUser.phone}
+          onChange={handleChange}
+        />
+        <p>{errors.phone?.message}</p>
+        <input type="submit" value="Submit" />
+      </form>
+    </>
+  );
 }
