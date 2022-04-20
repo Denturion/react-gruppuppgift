@@ -88,6 +88,7 @@ export function Admin() {
 
     //DELETE BOOKING FROM BOTH OUR CUSTOMERANDBOOKING LIST AND API
     function deleteBooking(idToDelete: string, index: number) {
+        setCustomer(9999999999999);
         let array = [...customerAndBooking];
         array.splice(index, 1);
         setCustomerAndBooking(array);
@@ -98,6 +99,10 @@ export function Admin() {
     function submitComplete() {
         setSubmitCompleted(true);
         setShowBooking(false);
+
+        setTimeout(() => {
+            setSubmitCompleted(false);
+          }, 2000);
     }
 
     //SHOW BOOKING COMPONENT TO CREATE BOOKING FROM ADMIN
