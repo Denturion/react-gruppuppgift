@@ -32,7 +32,7 @@ export function Contact() {
       <br></br>
       <p className="Opentimes">ÖPPETTIDER</p>
       <p>Söndag - Torsdag 18-23</p>
-      <p>Fre-lörd 18-01</p>
+      <p>Fredag - Lördag 18-01</p>
       <p>britney@burgers.se</p>
     </div>
   );
