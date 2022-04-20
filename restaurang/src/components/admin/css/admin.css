@@ -1,5 +1,5 @@
 .newbooking {
-  width: 100vw;
+  width: 98vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -18,7 +18,7 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  width: 100vw;
+  width: 98vw;
   margin-bottom: 30px;
   margin: auto;
 }
@@ -30,5 +30,34 @@
 .CustomerData div form {
   position: relative;
   margin-left: 0;
+  width: 100%;
+  margin-bottom: 30px;
+}
+
+.CustomerData div form span {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #FFB2B2;
+}
+
+button {
+  margin: 3px;
+  background-color: #ffdada;
+  border: 0;
+  border-radius: 3px;
+  color: black;
+  padding: 5px 0;
+}
+
+button:hover {
+  background-color: #fa9999;
+}
+
+button:active {
+  background-color: #fbc9c9;
+}
+
+button:disabled {
+  opacity: 0.5;
 }
 /*# sourceMappingURL=admin.css.map */
