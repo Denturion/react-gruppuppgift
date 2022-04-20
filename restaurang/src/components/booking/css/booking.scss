@@ -80,9 +80,26 @@ form {
       font-size: 11px;
     }
   }
-}
-button{
-  cursor: pointer;
+  button {
+    margin: 3px;
+    background-color: #ffdada;
+    border: 0;
+    border-radius: 3px;
+    color: black;
+    padding: 5px 10px;
+  
+    &:hover {
+      background-color: #fa9999;
+    }
+  
+    &:active {
+      background-color: #fbc9c9;
+    }
+    &:disabled {
+      opacity: 0.5;
+    }
+  }
+  
 }
 
 .sumbitcomplete{

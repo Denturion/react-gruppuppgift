@@ -108,8 +108,25 @@ form ul li > span {
   font-size: 11px;
 }
 
-button {
-  cursor: pointer;
+form button {
+  margin: 3px;
+  background-color: #ffdada;
+  border: 0;
+  border-radius: 3px;
+  color: black;
+  padding: 5px 10px;
+}
+
+form button:hover {
+  background-color: #fa9999;
+}
+
+form button:active {
+  background-color: #fbc9c9;
+}
+
+form button:disabled {
+  opacity: 0.5;
 }
 
 .sumbitcomplete {
