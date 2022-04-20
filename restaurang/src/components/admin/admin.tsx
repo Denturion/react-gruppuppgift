@@ -202,7 +202,8 @@ export function Admin() {
                         <option value="21-00">21.00</option>
                     </select>
 
-                    <label htmlFor="guest">Antal Gäster: 1-12</label>
+                    <label htmlFor="guest">Antal Gäster: </label>
+                    <span>1-12</span>
                     <input id="guest" type="number"{
                         ...register("guest",{
                             min: {
@@ -217,7 +218,7 @@ export function Admin() {
                         } defaultValue={info.booking.numberOfGuests} />
                         <p>{errors.guest?.message}</p>
 
-                    <input type="submit"></input>
+                    <button type="submit">Skicka</button>
                 </form>
             </div>
          )
@@ -244,8 +245,8 @@ export function Admin() {
                         <p>Tid: {data.booking.time}</p>
                         <p>Antal gäster: {data.booking.numberOfGuests.toString()}</p>
 
-                        <button onClick={() => { deleteBooking(data.booking._id, i) }}>Ta bort</button>
-                        <button onClick={() => { updateBooking(i) }}>Uppdatera</button>
+                        <button onClick={() => { deleteBooking(data.booking._id, i) }}>Ta bort bokning</button>
+                        <button onClick={() => { updateBooking(i) }}>Uppdatera bokning</button>
                     </>
                 }
                 {(show === i) && useshowForm(data, i)}
