@@ -1,6 +1,5 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
-import { Booking } from "../booking/booking";
 import { useForm } from "react-hook-form";
 import { BookingCalendar } from "../booking/bookingcalendar";
 import { IBooking } from "../interfaces/IBooking";
