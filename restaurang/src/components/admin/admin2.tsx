@@ -6,7 +6,8 @@ import { BookingCalendar } from "../booking/bookingcalendar";
 import { IBooking } from "../interfaces/IBooking";
 import { ICustomerAndBooking } from "../interfaces/ICustomerAndBooking";
 
-export function Admin2() {
+
+export function Admin() {
 
     const [customerAndBooking, setCustomerAndBooking] = useState<ICustomerAndBooking[]>([]);
     const [show, setShow] = useState(9999);
@@ -47,20 +48,23 @@ export function Admin2() {
         return (
             <div>
                 <form onSubmit={handleSubmit((data)=>{
-                    console.log(data);
+                    handleSubmits(data, index);
                 })}>
 
-                    <input {...register("firstName", {required: "Du måste skriva här", minLength:{value:2, message:"Måste vara 3 bokstäver"}})} defaultValue={info.customerData.name} />
+                    <label htmlFor="firstName">Förnamn:</label>
+                    <input id="firstName" type="text"{...register("firstName", {required: "Du måste skriva här", minLength:{value:2, message:"Måste vara 3 bokstäver"}})} defaultValue={info.customerData.name} />
+
+                    <label htmlFor="date">Förnamn:</label>
+                    <input id="date" type="text"{...register("date", {required: "Du måste skriva här", minLength:{value:2, message:"Måste vara 3 bokstäver"}})} defaultValue={info.booking.date} />
                     <p>{errors.firstName?.message}</p>
                     <input type="submit"></input>
                 </form>
-                <button onClick={() => { handleSubmits(index) }}> Handle Submit</button>
             </div>
         )
     }
 
 
-    function handleSubmits(index: number) {
+    function handleSubmits(data:any, index: number) {
         let array = [...customerAndBooking];
 
         array[index] = {
@@ -74,7 +78,7 @@ export function Admin2() {
             },
             customerData: {
                 _id: array[index].customerData._id,
-                name: "UPPDATERAD!!",
+                name: data.firstName,
                 lastname: "lar",
                 email: "hej",
                 phone: "06006"

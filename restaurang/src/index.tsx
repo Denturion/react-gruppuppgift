@@ -10,10 +10,10 @@ import { NotFound } from "./components/notfound/notfound";
 import { Layout } from "./components/layout/layout";
 import { BookingCalendar } from "./components/booking/bookingcalendar";
 import { Booking } from "./components/booking/booking";
-import { Admin } from "./components/admin/admin";
+
 import { Menu } from "./components/main/menu";
-import { Admin1 } from "./components/admin/admin1";
-import { Admin2 } from "./components/admin/admin2";
+import { Admin } from "./components/admin/admin2";
+
 
 const container = document.getElementById("root");
 const root = ReactDOMClient.createRoot(container as Element);

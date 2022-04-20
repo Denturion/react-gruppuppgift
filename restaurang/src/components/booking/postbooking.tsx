@@ -5,7 +5,7 @@ import { IBookingCustomer } from "../interfaces/IBookingCustomer";
 import { ICustomer } from "../interfaces/ICustomer";
 
 
-export function postBooking(time: string, mydate: string, guests: number, customer: ICustomer) {
+export function postBooking(mydate: string, time: string, guests: number, customer: ICustomer) {
 
     let restaurantID = "624ff35c138a40561e115f1e";
 

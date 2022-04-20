@@ -5,7 +5,7 @@ import { ICustomer } from "../interfaces/ICustomer";
 import { ICustomerAndBooking } from "../interfaces/ICustomerAndBooking";
 import { ICustomerInfo } from "../interfaces/ICustomerInfo";
 
-export function Admin() {
+export function Admin2() {
 
   let customerAndBookingList: ICustomerAndBooking[] = [];
   const [customerAndBooking, setCustomerAndBooking] = useState<ICustomerAndBooking[]>([])
@@ -42,7 +42,9 @@ export function Admin() {
         `https://school-restaurant-api.azurewebsites.net/customer/${customer}`
       )
       .then((response)=>{
-        console.log(response.data)
+        console.log(response.data[0]);
+
+        //Lyckas inte returna???
         return (response.data[0])
       })
   };
