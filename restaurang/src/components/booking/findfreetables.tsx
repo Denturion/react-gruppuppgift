@@ -17,8 +17,6 @@ export function FindFreeTables(props: IFindFreeTables) {
     const [show18, setShow18] = useState(false);
     const [show21, setShow21] = useState(false);
 
-
-
     axios.get<IBooking[]>("https://school-restaurant-api.azurewebsites.net/booking/restaurant/624ff35c138a40561e115f1e")
         .then((response) => {
 

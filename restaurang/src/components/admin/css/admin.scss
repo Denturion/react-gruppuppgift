@@ -1,0 +1,23 @@
+.newbooking{
+    width:100vw;
+    display: flex;
+    justify-content: center;
+}
+
+.CustomerData{
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100vw;
+    margin-bottom: 30px;
+    margin: auto;
+    div{
+        width: 30%;
+        form{
+
+            position: relative;
+            margin-left: 0;
+        }
+    }
+}

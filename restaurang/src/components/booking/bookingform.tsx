@@ -102,12 +102,8 @@ export function BookingForm(props: IBookingFormProps) {
 // }
 // export function BookingForm(props: IBookingFormProps) {
 
-//     const [newUser, setNewUser] = useState<ICustomer>({
-//         name: "",
-//         lastname: "",
-//         email: "",
-//         phone: ""
-//     });
+// function handleChange(e: ChangeEvent<HTMLInputElement>) {
+//     let name = e.target.name;
 
 //     function handleChange(e: ChangeEvent<HTMLInputElement>) {
 //         let name = e.target.name;

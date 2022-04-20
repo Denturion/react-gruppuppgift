@@ -7,10 +7,12 @@ export function Main() {
   const navigate = useNavigate();
 
   function toBookingPage() {
-    //Länka till bokningssidan
+    //LINK TO BOOKINGPAGE TO BOOK A TABLE
     navigate("/booking");
   }
 
+
+  //MAIN PAGE STUFF
   return (
     <>
       <div className="mainpage">

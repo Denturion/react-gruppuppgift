@@ -1,1 +1,34 @@
-/* No CSS *//*# sourceMappingURL=admin.css.map */
+.newbooking {
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.CustomerData {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 40px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 100vw;
+  margin-bottom: 30px;
+  margin: auto;
+}
+
+.CustomerData div {
+  width: 30%;
+}
+
+.CustomerData div form {
+  position: relative;
+  margin-left: 0;
+}
+/*# sourceMappingURL=admin.css.map */
