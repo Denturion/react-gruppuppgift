@@ -11,8 +11,8 @@ interface IFindFreeTables {
 export function FindFreeTables(props: IFindFreeTables) {
 
     let numberOfTables: number = props.numberOfGuests / 6;
-    let freeTables18: number = 2;
-    let freeTables21: number = 2;
+    let freeTables18: number = 15;
+    let freeTables21: number = 15;
 
     const [show18, setShow18] = useState(false);
     const [show21, setShow21] = useState(false);
