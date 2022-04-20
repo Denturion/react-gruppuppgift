@@ -14,7 +14,11 @@ export function Admin() {
     const [showBooking, setShowBooking] = useState(false);
     const [submitCompleted, setSubmitCompleted] = useState(false);
 
+
+
     const { register, handleSubmit, formState: { errors } } = useForm();
+
+
 
     useEffect(() => {
         getBookingAndCustomers();
@@ -55,6 +59,7 @@ export function Admin() {
 
 
     function updateBooking(index: number) {
+
         if (show === index) {
             setShow(9999999999999)
         }
@@ -82,6 +87,8 @@ export function Admin() {
     //HTML//
 
     function useshowForm(info: ICustomerAndBooking, index: number) {
+
+
         return (
             <div>
                 <form onSubmit={handleSubmit((data) => {
@@ -180,13 +187,26 @@ export function Admin() {
         )
     }
 
+
     let lis = customerAndBooking.map((data, i) => {
         return (
             <div key={i}>
-                <p>{data.booking._id}</p>
-                <p>{data.customerData.name}</p>
-                <button onClick={() => { deleteBooking(data.booking._id, i) }}>Delete</button>
-                <button onClick={() => { updateBooking(i) }}>Uppdatera Bokning</button>
+                <h1>{data.customerData.name} {data.customerData.lastname}</h1>
+                <p>Bokningsid: {data.booking._id}</p>
+                <p>Kundid: {data.customerData._id}</p>
+
+                <h2>Kundinformation</h2>
+                <p>Namn: {data.customerData.name} {data.customerData.lastname}</p>
+                <p>E-post: {data.customerData.email}</p>
+                <p>Telefonnummer: {data.customerData.phone}</p>
+
+                <h2>Bokningsinformation</h2>
+                <p>Datum: {data.booking.date}</p>
+                <p>Tid: {data.booking.time}</p>
+                <p>Antal gäster: {data.booking.numberOfGuests.toString()}</p>
+
+                <button onClick={() => { deleteBooking(data.booking._id, i) }}>Ta bort</button>
+                <button onClick={() => { updateBooking(i) }}>Uppdatera</button>
                 {(show === i) && useshowForm(data, i)}
             </div>
         )
