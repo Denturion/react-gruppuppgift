@@ -10,20 +10,20 @@ import { putSubmits } from "./putsubmits";
 export function Admin() {
 
     const [customerAndBooking, setCustomerAndBooking] = useState<ICustomerAndBooking[]>([]);
+
+    //CONST FOR HTML WHAT SHOWS WHEN
     const [show, setShow] = useState(9999999999999);
     const [showBooking, setShowBooking] = useState(false);
     const [submitCompleted, setSubmitCompleted] = useState(false);
 
-
-
+    //CONST FOR REACT HOOK FORMS    
     const { register, handleSubmit, formState: { errors } } = useForm();
-
-
 
     useEffect(() => {
         getBookingAndCustomers();
     }, []);
 
+    //FETCH API AND PUT EVERYTHING IN CUSTOMERANDBOOKING
     function getBookingAndCustomers() {
 
         axios.get<IBooking[]>("https://school-restaurant-api.azurewebsites.net/booking/restaurant/624ff35c138a40561e115f1e")
@@ -37,27 +37,27 @@ export function Admin() {
                 let customers = await Promise.all(customerPromises);
 
                 let customerAndBooking = bookings.data.map(async (booking, i) => {
-                    let onefullboking: ICustomerAndBooking = { booking: booking, customerData: customers[i] };
-                    return onefullboking
+                    let oneboking: ICustomerAndBooking = { booking: booking, customerData: customers[i] };
+                    return oneboking
                 });
                 let customerAndBookingList = await Promise.all(customerAndBooking);
                 setCustomerAndBooking(customerAndBookingList);
             });
-
     }
 
-
-
+    //SUBMIT FROM FORM
     function handleSubmits(data: any, index: number) {
         setShow(9999999999999);
         let array = [...customerAndBooking];
 
+        //CALLING PUTSUMBIT FUNCTION IN OTHER TSFILE TO CHANGE CUSTOMER IN API
+        //RETURNS NEW ARRAY WITH UPDATED BOOKING IN THE ARRAY
         let newCustomerAndBooking = putSubmits(array, data, index);
 
         setCustomerAndBooking(newCustomerAndBooking);
     }
 
-
+    //WHEN "UPPDATERA BOKNING" IS PRESSED SHOW THE FORM
     function updateBooking(index: number) {
 
         if (show === index) {
@@ -69,6 +69,7 @@ export function Admin() {
     };
 
 
+    //DELETE BOOKING FROM BOTH OUR CUSTOMERANDBOOKING LIST AND API
     function deleteBooking(idToDelete: string, index: number) {
         let array = [...customerAndBooking];
         array.splice(index, 1);
@@ -76,19 +77,24 @@ export function Admin() {
         axios.delete(`https://school-restaurant-api.azurewebsites.net/booking/delete/${idToDelete}`);
     }
 
+    //SHOW MESSAGE WHEN FORM FOR UPDATE BOOKING IS COMPLETE
     function submitComplete() {
         setSubmitCompleted(true);
         setShowBooking(false);
     }
+
+    //SHOW BOOKING COMPONENT TO CREATE BOOKING FROM ADMIN
     function newBooking() {
         setShowBooking(true)
     }
 
+    
+    ////////
     //HTML//
+    ///////
 
+    //CREATE FORM WITH VALIDATION
     function useshowForm(info: ICustomerAndBooking, index: number) {
-
-
         return (
             <div>
                 <form onSubmit={handleSubmit((data) => {
@@ -187,8 +193,8 @@ export function Admin() {
         )
     }
 
-
-    let lis = customerAndBooking.map((data, i) => {
+    //CREATE HTML FOR EACH CUSTOMER
+    let customerdata = customerAndBooking.map((data, i) => {
         return (
             <div key={i}>
                 <h1>{data.customerData.name} {data.customerData.lastname}</h1>
@@ -212,13 +218,14 @@ export function Admin() {
         )
     });
 
+    //PUT EVERYTHING TOGHETER, NEWBOOKING BUTTON AND CUSTOMERDATA ALLWAYS SHOWS
     return (
         <>
             <div>
                 <button onClick={newBooking}>Ny bokning</button>
             </div>
             <div>
-                {lis}
+                {customerdata}
             </div>
             {showBooking &&
                 (showBooking && !submitCompleted) && <BookingCalendar submitComplete={submitComplete}></BookingCalendar>
