@@ -1,3 +1,13 @@
+.newbooking {
+  width: 100vw;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
 .CustomerData {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -8,9 +18,9 @@
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-left: 16px;
-  width: 70vw;
+  width: 100vw;
   margin-bottom: 30px;
+  margin: auto;
 }
 
 .CustomerData div {
@@ -18,7 +28,6 @@
 }
 
 .CustomerData div form {
-  width: 49vw;
   position: relative;
   margin-left: 0;
 }

@@ -182,7 +182,6 @@ export function Admin() {
                     <p>{errors.phone?.message}</p>
 
                     <label htmlFor="date">Datum:</label>
-                    <p>Tänk på att dubbelkolla så att det finns bord innan du byter datum</p>
                     <input id="date" type="text"{
                         ...register("date",
                             {
@@ -198,19 +197,30 @@ export function Admin() {
                     <p>{errors.date?.message}</p>
 
                     <label htmlFor="time">Tid:</label>
-                    <p>Tänk på att dubbelkolla så att det finns bord innan du byter tid</p>
                     <select id="time" {...register("time")}>
                         <option value="18.00">18.00</option>
                         <option value="21-00">21.00</option>
                     </select>
 
-                    <label htmlFor="guest">Antal Gäster:</label>
-                    <input id="guest" type="number"{...register("guest")} defaultValue={info.booking.numberOfGuests} />
+                    <label htmlFor="guest">Antal Gäster: 1-12</label>
+                    <input id="guest" type="number"{
+                        ...register("guest",{
+                            min: {
+                                value: 1,
+                                message: "Minst 1 gäst"
+                            },
+                            max: {
+                                value: 12,
+                                message: "Max 12 gäster"
+                            }
+                        })
+                        } defaultValue={info.booking.numberOfGuests} />
+                        <p>{errors.guest?.message}</p>
 
                     <input type="submit"></input>
                 </form>
             </div>
-        )
+         )
     }
 
     //CREATE HTML FOR EACH CUSTOMER
@@ -246,7 +256,7 @@ export function Admin() {
     //PUT EVERYTHING TOGHETER, NEWBOOKING BUTTON AND CUSTOMERDATA ALLWAYS SHOWS
     return (
         <>
-            <div>
+            <div className="newbooking">
                 <button onClick={newBooking}>Ny bokning</button>
             </div>
             {showBooking &&
