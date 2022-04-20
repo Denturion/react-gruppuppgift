@@ -1,1 +1,25 @@
-/* No CSS *//*# sourceMappingURL=admin.css.map */
+.CustomerData {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  gap: 40px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  margin-left: 16px;
+  width: 70vw;
+  margin-bottom: 30px;
+}
+
+.CustomerData div {
+  width: 30%;
+}
+
+.CustomerData div form {
+  width: 49vw;
+  position: relative;
+  margin-left: 0;
+}
+/*# sourceMappingURL=admin.css.map */

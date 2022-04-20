@@ -5,6 +5,7 @@ import { BookingCalendar } from "../booking/bookingcalendar";
 import { IBooking } from "../interfaces/IBooking";
 import { ICustomerAndBooking } from "../interfaces/ICustomerAndBooking";
 import { putSubmits } from "./putsubmits";
+import "./css/admin.css";
 
 
 export function Admin() {
@@ -95,6 +96,9 @@ export function Admin() {
 
     //CREATE FORM WITH VALIDATION
     function useshowForm(info: ICustomerAndBooking, index: number) {
+
+        console.log(info);
+        
         return (
             <div>
                 <form onSubmit={handleSubmit((data) => {
@@ -129,7 +133,7 @@ export function Admin() {
                         )
                     }
                         defaultValue={info.customerData.lastname} />
-                    <p>{errors.firstName?.message}</p>
+                    <p>{errors.lastName?.message}</p>
 
                     <label htmlFor="email">E-post:</label>
                     <input id="email" type="email"{
@@ -224,9 +228,6 @@ export function Admin() {
             <div>
                 <button onClick={newBooking}>Ny bokning</button>
             </div>
-            <div>
-                {customerdata}
-            </div>
             {showBooking &&
                 (showBooking && !submitCompleted) && <BookingCalendar submitComplete={submitComplete}></BookingCalendar>
             }
@@ -235,6 +236,9 @@ export function Admin() {
                     Din bokning är nu inskickad och visas nästa gång du kommer in på sidan!
                 </div>
             )}
+            <div className="CustomerData">
+                {customerdata}
+            </div>
         </>
     );
 }

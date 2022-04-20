@@ -1,0 +1,17 @@
+.CustomerData{
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-left: 16px;
+    width: 70vw;
+    margin-bottom: 30px;
+    div{
+        width: 30%;
+        form{
+            width: 49vw;
+            position: relative;
+            margin-left: 0;
+        }
+    }
+}
