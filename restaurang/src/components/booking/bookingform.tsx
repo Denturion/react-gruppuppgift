@@ -39,7 +39,7 @@ export function BookingForm(props: IBookingFormProps) {
 
     function handleSubmits() {
         //PUSH BOOKING TO API
-        postBooking(props.myDate, props.time, props.guests, newUser);
+        postBooking(props.time, props.myDate, props.guests, newUser);
 
         //Submit Complete, show message in Parent
         props.submitComplete(true);
