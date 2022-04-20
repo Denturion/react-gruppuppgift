@@ -6,7 +6,10 @@ import { FindFreeTables } from "./findfreetables";
 import { CalendarContainer } from "./stylecomponens/calendarstyles";
 import { NumberOfGuests } from "./numberOfGuests";
 
-export function BookingCalendar() {
+interface IBookingCalendarProps {
+  submitComplete(arg: boolean): void
+}
+export function BookingCalendar(props: IBookingCalendarProps) {
   const [date, setDate] = useState(new Date());
   const [showTimes, setShowTimes] = useState(false);
   const [showForm, setShowForm] = useState(false);
@@ -36,6 +39,7 @@ export function BookingCalendar() {
 
   function submitComplete() {
     setSubmitCompleted(true);
+    props.submitComplete(true);
   }
 
   return (
