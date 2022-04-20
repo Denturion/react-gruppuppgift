@@ -31,8 +31,8 @@ export function Contact() {
       </p>
       <br></br>
       <p className="Opentimes">ÖPPETTIDER</p>
-      <p>Sön-Tors 11-21</p>
-      <p>Fre-lörd 11-22</p>
+      <p>Söndag - Torsdag 18-23</p>
+      <p>Fre-lörd 18-01</p>
       <p>britney@burgers.se</p>
     </div>
   );
