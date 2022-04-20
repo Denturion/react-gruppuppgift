@@ -43,6 +43,9 @@ p {
   position: relative;
   margin-left: 0;
   width: 100%;
+  max-width: 400px;
+  border-radius: 2px;
+  padding: 20px;
   margin-bottom: 30px;
 }
 
@@ -50,6 +53,10 @@ p {
   margin: 0;
   font-size: 0.8rem;
   color: #FFB2B2;
+}
+
+.CustomerData div form p {
+  color: #fbc9c9;
 }
 
 button {

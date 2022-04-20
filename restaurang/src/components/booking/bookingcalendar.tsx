@@ -70,12 +70,13 @@ export function BookingCalendar(props: IBookingCalendarProps) {
 
       {(showForm && !submitCompleted) && (
       <>
-      <p>Vald tid: {bookingTime}</p>
       <BookingForm time={bookingTime} myDate={date.toLocaleDateString()} guests={numberOfGuests} submitComplete={submitComplete}></BookingForm>
       </>)}
       {submitCompleted && (
-        <div>
-          KLAAAR
+        <div className="sumbitcomplete">
+          <h2>Din bokning är nu skickad!</h2>
+          <h3>Välkommen till oss på Britney Burgers!</h3>
+          <p>Bokat datum: {date.toLocaleDateString()} klockan: {bookingTime}</p>
         </div>
       )}
     </>

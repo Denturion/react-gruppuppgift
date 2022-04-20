@@ -3,7 +3,7 @@ body {
 }
 
 p {
-  color: #FFB2B2;
+  color: #ffb2b2;
   font-size: 0.8rem;
 }
 
@@ -30,5 +30,98 @@ p {
   display: -ms-flexbox;
   display: flex;
   gap: 10px;
+}
+
+.formdiv {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.formdiv p {
+  font-size: 1.3rem;
+}
+
+form {
+  max-width: 400px;
+  background: #000;
+  border-radius: 2px;
+  padding: 20px;
+}
+
+form ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+form ul li {
+  display: block;
+  padding: 9px;
+  border: 1px solid #ffdada;
+  margin-bottom: 30px;
+  border-radius: 3px;
+}
+
+form ul li > label {
+  display: block;
+  float: left;
+  margin-top: -19px;
+  background: #000;
+  height: 14px;
+  padding: 2px 5px 2px 5px;
+  color: #ffb2b2;
+  font-size: 14px;
+  overflow: hidden;
+}
+
+form ul input {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  width: 100%;
+  display: block;
+  outline: none;
+  border: none;
+  height: 25px;
+  line-height: 25px;
+  font-size: 16px;
+  padding: 0;
+  background-color: #000;
+  color: white;
+}
+
+form ul li > span {
+  background: #383838;
+  display: block;
+  padding: 3px;
+  margin: 0 -9px -9px -9px;
+  text-align: center;
+  color: #ffb2b2;
+  font-size: 11px;
+}
+
+button {
+  cursor: pointer;
+}
+
+.sumbitcomplete {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 /*# sourceMappingURL=booking.css.map */
