@@ -55,10 +55,6 @@ export function BookingCalendar(props: IBookingCalendarProps) {
 
         <div className='info'>
           <div>
-            <p className='text-center'>
-              <span className='bold'>Valt datum:</span>{' '}
-              {date.toLocaleDateString()}
-            </p>
             <NumberOfGuests guests={guests}></NumberOfGuests>
             <button className='freeTables' onClick={findTable}>Se lediga bord</button>
           </div>
