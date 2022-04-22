@@ -6,14 +6,10 @@ import { FindFreeTables } from "./findfreetables";
 import { CalendarContainer } from "./stylecomponens/calendarstyles";
 import { NumberOfGuests } from "./numberOfGuests";
 
-interface IFindFreeTables{
-  date:string,
-  numberOfGuests:number,
-  submitComplete18(arg: boolean): void
-  submitComplete21(arg: boolean): void
+interface IBookingCalendarProps {
+  submitComplete(arg: boolean): void
 }
-
-export function BookingCalendar() {
+export function BookingCalendar(props: IBookingCalendarProps) {
   const [date, setDate] = useState(new Date());
   const [showTimes, setShowTimes] = useState(false);
   const [showForm, setShowForm] = useState(false);
@@ -33,7 +29,6 @@ export function BookingCalendar() {
 
   function timeBooking(time: string) {
     setbookingTime(time);
-    console.log(time);
     setShowForm(true);
   };
 
@@ -44,6 +39,7 @@ export function BookingCalendar() {
 
   function submitComplete() {
     setSubmitCompleted(true);
+    props.submitComplete(true);
   }
 
   return (
@@ -59,10 +55,6 @@ export function BookingCalendar() {
 
         <div className='info'>
           <div>
-            <p className='text-center'>
-              <span className='bold'>Valt datum:</span>{' '}
-              {date.toLocaleDateString()}
-            </p>
             <NumberOfGuests guests={guests}></NumberOfGuests>
             <button className='freeTables' onClick={findTable}>Se lediga bord</button>
           </div>
@@ -74,12 +66,13 @@ export function BookingCalendar() {
 
       {(showForm && !submitCompleted) && (
       <>
-      <p>Vald tid: {bookingTime}</p>
-      <BookingForm time={bookingTime} myDate={date.toLocaleString()} guests={numberOfGuests} submitComplete={submitComplete}></BookingForm>
+      <BookingForm time={bookingTime} myDate={date.toLocaleDateString()} guests={numberOfGuests} submitComplete={submitComplete}></BookingForm>
       </>)}
       {submitCompleted && (
-        <div>
-          KLAAAR
+        <div className="sumbitcomplete">
+          <h2>Din bokning är nu skickad!</h2>
+          <h3>Välkommen till oss på Britney Burgers!</h3>
+          <p>Bokat datum: {date.toLocaleDateString()} klockan: {bookingTime}</p>
         </div>
       )}
     </>

@@ -1,0 +1,75 @@
+.newbooking {
+    width: 98vw;
+    display: flex;
+    justify-content: center;
+    button {
+        font-size: 1.2rem;
+    }
+}
+h1,
+h2 {
+    color: #fa9999;
+}
+p {
+    color: white;
+}
+
+.CustomerData {
+    display: flex;
+    gap: 40px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 98vw;
+    margin-bottom: 30px;
+    margin: auto;
+    div {
+        width: 30%;
+        form {
+            position: relative;
+            margin-left: 0;
+            width: 100%;
+            max-width: 400px;
+            border-radius: 2px;
+            padding: 20px;
+            margin-bottom: 30px;
+            span {
+                margin: 0;
+                font-size: 0.8rem;
+                color: #ffb2b2;
+            }
+            p {
+                color: #fbc9c9;
+            }
+        }
+    }
+}
+button {
+    margin: 3px;
+    background-color: #ffdada;
+    border: 0;
+    border-radius: 3px;
+    color: black;
+    padding: 5px 5px;
+    text-transform: uppercase;
+
+    &:hover {
+        background-color: #fa9999;
+    }
+
+    &:active {
+        background-color: #fbc9c9;
+    }
+    &:disabled {
+        opacity: 0.5;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .CustomerData {
+        width: 90vw;
+
+        div {
+            width: 90%;
+        }
+    }
+}

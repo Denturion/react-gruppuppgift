@@ -5,11 +5,11 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import reportWebVitals from "./reportWebVitals";
 import { Main } from "./components/main/main";
 import { Contact } from "./components/contact/contact";
-import App from "./App";
 import { NotFound } from "./components/notfound/notfound";
 import { Layout } from "./components/layout/layout";
-import { BookingCalendar } from "./components/booking/bookingcalendar";
 import { Booking } from "./components/booking/booking";
+
+import { Menu } from "./components/main/menu";
 import { Admin } from "./components/admin/admin";
 
 
@@ -21,8 +21,8 @@ root.render(
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Layout />}>
-          <Route index element={<App />} />
-          <Route path="/main" element={<Main />} />
+          <Route index element={<Main />} />
+          <Route path="/menu" element={<Menu />} />
           <Route path="/booking" element={<Booking />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/admin" element={<Admin />} />

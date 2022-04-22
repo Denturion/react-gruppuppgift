@@ -3,8 +3,14 @@ import { BookingForm } from "./bookingform";
 import "./css/booking.css";
 
 
+
 export function Booking() {
-    return (<BookingCalendar></BookingCalendar>)
+
+    function submitComplete() {
+      }
+    return (
+    <BookingCalendar submitComplete={submitComplete}></BookingCalendar>
+    )
 
 
 }

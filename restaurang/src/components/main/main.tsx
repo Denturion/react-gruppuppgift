@@ -1,26 +1,34 @@
 import { Menu } from "./menu";
-import mainburger from '../../images/mainpageBurger.png'
+import mainburger from "../../images/mainpageBurger.png";
 import { useNavigate } from "react-router-dom";
+import "./css/main.css";
 
-export function Main () {
+export function Main() {
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
+  function toBookingPage() {
+    //LINK TO BOOKINGPAGE TO BOOK A TABLE
+    navigate("/booking");
+  }
 
-    function toBookingPage(){
-        //Länka till bokningssidan
-        navigate('/booking');
-    }
 
-    return (
+  //MAIN PAGE STUFF
+  return (
     <>
-        <div className="mainpage">
-            <h1>BRITNEY BURGERS</h1>
-            <h2>Burgare, drinkar och karaoke</h2>
-            <img className="mainPageHamburger" src={mainburger}/>
+      <div className="mainpage">
+        <div className="text">
+          <h1>BRITNEY BURGERS</h1>
+          <h2>Burgare, drinkar och karaoke</h2>
+          <div className="button">
             <button onClick={toBookingPage}>Boka bord</button>
+          </div>
         </div>
-        <h3>Burgare | Tillbehör | Dryck</h3>
-        <Menu></Menu>
+        <div className="vertically">
+          <div className="inner">
+            <img className="mainPageHamburger" src={mainburger} />
+          </div>
+        </div>
+      </div>
     </>
-    )
+  );
 }
