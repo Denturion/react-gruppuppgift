@@ -83,7 +83,6 @@ export function Admin() {
         }
     };
 
-
     //DELETE BOOKING FROM BOTH OUR CUSTOMERANDBOOKING LIST AND API
     function deleteBooking(idToDelete: string, index: number) {
         setCustomer(9999999999999);
@@ -108,14 +107,9 @@ export function Admin() {
         setShowBooking(!showBooking)
     }
 
-
     ////////
     //HTML//
     ///////
-
-    //CREATE FORM WITH VALIDATION
-    function useshowForm(info: ICustomerAndBooking, index: number) {
-    }
 
     //CREATE HTML FOR EACH CUSTOMER
     let customerdata = customerAndBooking.map((data, i) => {
